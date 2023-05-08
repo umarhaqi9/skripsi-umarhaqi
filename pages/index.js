@@ -162,15 +162,15 @@ export default function Home() {
       darkToggle.checked = true;
       home.classList.add('herodark-bg');
       home.classList.remove('hero-bg');
-      splash.classList.add('splash-bg-dark');
-      splash.classList.remove('splash-bg');
+      // splash.classList.add('splash-bg-dark');
+      // splash.classList.remove('splash-bg');
     } else {
       document.documentElement.classList.remove('dark')
       darkToggle.checked = false;
       home.classList.remove('herodark-bg');
       home.classList.add('hero-bg');
-      splash.classList.remove('splash-bg-dark');
-      splash.classList.add('splash-bg');
+      // splash.classList.remove('splash-bg-dark');
+      // splash.classList.add('splash-bg');
     }
     
     // AOS

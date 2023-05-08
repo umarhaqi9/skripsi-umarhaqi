@@ -52,7 +52,6 @@ background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
   background-image: url('https://cdn.discordapp.com/attachments/1077723466494640128/1105034064781651978/iems_filtered.jpg');
   background-size: cover;
   /* filter: grayscale(100%); */
-  backdrop-filter: grayscale(100%);
 }
 
 .splash-bg{
@@ -61,7 +60,7 @@ background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
   background-image:  repeating-linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77);
   background-size: 62px 109px;
   background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
-  @apply bg-white
+  @apply bg-white dark:bg-slate-900
 }
 .splash-bg-dark{
   /* background-color: #ffffff;
