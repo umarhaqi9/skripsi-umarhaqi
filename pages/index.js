@@ -5,22 +5,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import emailjs from '@emailjs/browser';
 import Script from 'next/script';
-import Image from 'next/image';
-import HTMLPic from '../public/html5.png';
-import JSPic from '../public/javascript.png';
-import BSPic from '../public/bootstrap.png';
-import TSPic from '../public/ts.png';
-import ReactPic from '../public/react.png';
-import PHPPic from '../public/php.png';
-import IonicPic from '../public/ionic.png';
-import FigmaPic from '../public/figma.png';
-import CIPic from '../public/codeigniter-logo.png';
-import NextPic from '../public/nextjs.png';
-import CSSPic from '../public/css.svg';
-import Tailwind from '../public/Tailwind.svg';
 import SocMedBtn from '../components/SocMedBtn';
-import RemixPic from '../public/remix.png';
-import Logo from '../public/umarlogo4.png';
+
 
 
 export default function Home() {
@@ -410,7 +396,7 @@ export default function Home() {
 
                     <div className='mb-5 p-4 text-center w-1/2 lg:w-1/3 mr-3' data-aos="fade-up">
                       <a href='https://www.youtube.com/@glennlatuheru' target='_blank'>
-                        <div className='rounded-full shadow-md w-40 h-40 overflow-hidden hover:scale-110 duration-300 ease-in-out'>
+                        <div className='rounded-full mx-auto shadow-md w-40 h-40 overflow-hidden hover:scale-110 duration-300 ease-in-out'>
                           <img src='https://cdn.discordapp.com/attachments/1077723466494640128/1105026586345996288/omglenn.jpg'
                             className=' w-44 h-40'
                           />
@@ -423,7 +409,7 @@ export default function Home() {
 
                     <div className='mb-5 p-4 text-center w-1/2 lg:w-1/3' data-aos="fade-up">
                       <a href='https://www.youtube.com/@aftersound_review' target='_blank'>
-                        <div className='rounded-full shadow-md overflow-hidden w-40 h-40 hover:scale-110 duration-300 ease-in-out'>
+                        <div className='rounded-full mx-auto shadow-md overflow-hidden w-40 h-40 hover:scale-110 duration-300 ease-in-out'>
                           <img src='https://cdn.discordapp.com/attachments/1077723466494640128/1105026586081775676/aftersound_mike.jpg'
                             className=' w-48 h-40'
                           />
@@ -520,58 +506,7 @@ export default function Home() {
           </section>
         {/* Skills End */}
 
-        {/* Contact Start */}
-          {/* <section id='contact' className='pt-36 pb-32 dark:bg-slate-900'>
-            <div className='container'>
-              <div className='w-full px-4' data-aos="fade-up">
-                <div className='max-w-xl mx-auto text-center mb-16'>
-                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Contact</h4>
-                  <h2 className='font-bold text-black text-4xl mb-4  dark:text-white'>Message For Details</h2>
-                  <p className='font-small text-slate-500 md:text-lg'>
-                    If you are interested to know more or give a feedback, I'd be very open to it. You can contact me through here :
-                  </p>
-                </div>
-                
-                <div id='alert' className="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800 duration-150 ease-in-out hidden" role="alert">
-                  <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-                  <span className="sr-only">Info</span>
-                  <div>
-                    <span className="font-medium">Your message has been sent!</span> Be sure to check your email for replies.
-                  </div>
-                </div>
-              </div>
-
-              <form ref={form} onSubmit={sendEmail}>
-                <div className='w-full lg:w-2/3 lg:mx-auto' data-aos="fade-up">
-                  <div className='w-full px-4 mb-8'>
-                    <label for="name" className='text-base text-sky-500 font-bold'>Name</label>
-                    <input type="text" name="user_name" id="name" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-2 focus:border-sky-500 mt-2' required/>
-                  </div>
-                    <div className='w-full px-4 mb-8'>
-                    <label for="email" className='text-base text-sky-500 font-bold'>Email</label>
-                    <input type="email" name="user_email" id="email" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-2 focus:border-sky-500 mt-2' required/>
-                  </div>
-                  <div className='w-full px-4 mb-8'>
-                    <label for="message" className='text-base text-sky-500 font-bold'>Message</label>
-                    <textarea type="text" name="message" id="message" className='w-full bg-slate-200 dark:bg-slate-400 text-black p-3 rounded-md focus:outline-none focus:ring-sky-500 focus:ring-2 focus:border-sky-500 mt-2 h-32' required/>
-                  </div>
-                  <div className='w-full px-4'>
-                    <button id='submit' className='text-base font-semibold text-white bg-sky-500 py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-500'>Send</button>
-                  </div>
-                  <div className='w-full px-4'>
-                    <button id='load' className='flex justify-center text-base font-semibold text-white bg-sky-300 py-3 px-8 rounded-full transition duration-500 hidden' disabled>
-                      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-30" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Processing...
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </section> */}
-        {/* Contact End */}
+        
 
         {/* Footer Start */}
           <footer className='bg-slate-800 pt-24 pb-12'>
