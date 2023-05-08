@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  scroll-behavior: smooth;
+  font-family: 'Rubik', sans-serif;
+}
+
+input, textarea{
+  caret-color: #0ea5e9;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  /* background-color: #727272; */
+  @apply bg-slate-200 dark:bg-gray-700
+}
+::-webkit-scrollbar{
+  width: 12px;
+  background-color: #2f3030;
+  @apply bg-slate-100 dark:bg-slate-900
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0ea5e9, #269ed6);
+}
+
+::selection{
+  background: #0ea5e9;
+  color: #fff;
+}
+.hero-bg{
+  background-color: #ffffff;
+  opacity: 1;
+  /* background-image:  repeating-linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177);
+  background-size: 62px 109px;
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+
+  background-image: url('https://cdn.discordapp.com/attachments/1077723466494640128/1105034064781651978/iems_filtered.jpg');
+  background-size: cover;
+}
+
+.herodark-bg{
+  background-color: #0f172a;
+opacity: 1;
+/* background-image:  repeating-linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77);
+background-size: 62px 109px;
+background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+
+  background-image: url('https://cdn.discordapp.com/attachments/1077723466494640128/1105034064781651978/iems_filtered.jpg');
+  background-size: cover;
+  /* filter: grayscale(100%); */
+  backdrop-filter: grayscale(100%);
+}
+
+.splash-bg{
+  /* background-color: #0f172a;
+  opacity: 1;
+  background-image:  repeating-linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(30deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(150deg, #141c2f 12%, transparent 12.5%, transparent 87%, #141c2f 87.5%, #141c2f), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77), linear-gradient(60deg, #141c2f77 25%, transparent 25.5%, transparent 75%, #141c2f77 75%, #141c2f77);
+  background-size: 62px 109px;
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+  @apply bg-white
+}
+.splash-bg-dark{
+  /* background-color: #ffffff;
+  opacity: 1;
+  background-image:  repeating-linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(30deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(150deg, #f1f1f1 12%, transparent 12.5%, transparent 87%, #f1f1f1 87.5%, #f1f1f1), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177), linear-gradient(60deg, #f1f1f177 25%, transparent 25.5%, transparent 75%, #f1f1f177 75%, #f1f1f177);
+  background-size: 62px 109px;
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+  @apply bg-slate-900
+
+  /* background-color: #ffffff;
+  opacity: 1;
+  background-image:  linear-gradient(30deg, #fafafa 12%, transparent 12.5%, transparent 87%, #fafafa 87.5%, #fafafa), linear-gradient(150deg, #fafafa 12%, transparent 12.5%, transparent 87%, #fafafa 87.5%, #fafafa), linear-gradient(30deg, #fafafa 12%, transparent 12.5%, transparent 87%, #fafafa 87.5%, #fafafa), linear-gradient(150deg, #fafafa 12%, transparent 12.5%, transparent 87%, #fafafa 87.5%, #fafafa), linear-gradient(60deg, #fafafa77 25%, transparent 25.5%, transparent 75%, #fafafa77 75%, #fafafa77), linear-gradient(60deg, #fafafa77 25%, transparent 25.5%, transparent 75%, #fafafa77 75%, #fafafa77);
+  background-size: 62px 109px;
+  background-position: 0 0, 0 0, 31px 54px, 31px 54px, 0 0, 31px 54px; */
+
+  /* background-color: #ffffff;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 37px ), repeating-linear-gradient( #f1f1f155, #f1f1f1 ); */
+}
+
+/* .blob { 
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8, %3Csvg width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22 %3E %3Cdefs%3E %3ClinearGradient id=%22linearGradientId%22 gradientTransform=%22rotate(-15 0.5 0.5)%22%3E %3Cstop offset=%220%25%22 stop-color=%22%230ea5e9%22 %2F%3E %3Cstop offset=%22100%25%22 stop-color=%22%23b1e6ff%22 %2F%3E %3C%2FlinearGradient%3E %3CclipPath id=%22shape%22%3E %3Cpath fill=%22currentColor%22 d=%22M819%2C702Q733%2C904%2C518.5%2C871.5Q304%2C839%2C247%2C669.5Q190%2C500%2C222.5%2C288Q255%2C76%2C465.5%2C135.5Q676%2C195%2C790.5%2C347.5Q905%2C500%2C819%2C702Z%22%3E%3C%2Fpath%3E %3C%2FclipPath%3E %3C%2Fdefs%3E %3Cg clip-path=%22url(%23shape)%22%3E %3Cpath fill=%22url(%23linearGradientId)%22 d=%22M819%2C702Q733%2C904%2C518.5%2C871.5Q304%2C839%2C247%2C669.5Q190%2C500%2C222.5%2C288Q255%2C76%2C465.5%2C135.5Q676%2C195%2C790.5%2C347.5Q905%2C500%2C819%2C702Z%22 %2F%3E %3C%2Fg%3E %3C%2Fsvg%3E");
+} */
+
+
+.navbar-fixed{
+  @apply fixed z-[9999] bg-slate-800 bg-opacity-80 backdrop-blur-sm;
+  /* backdrop-filter: blur(5px); */
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)
+}
+
+.hamburgerline{
+  @apply w-[30px] h-[2px] my-2 block bg-white group-hover:bg-sky-500;
+}
+
+.hamburgeractive > span:nth-child(1){
+  @apply rotate-45;
+}
+
+.hamburgeractive > span:nth-child(2){
+  @apply scale-0;
+}
+
+.hamburgeractive > span:nth-child(3){
+  @apply  -rotate-45;
+}
+
+#dark-toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3;
+}
+
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #0ea5e9;
+  transform-origin: 0%;
+}
+
+
+
+/* html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+} */
+
+/* a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */
