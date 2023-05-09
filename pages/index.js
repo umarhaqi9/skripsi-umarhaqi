@@ -138,7 +138,7 @@ export default function Home() {
 
         <Head>
           <title>urIEM</title>
-          <link rel="icon" href="https://cdn.discordapp.com/attachments/841587576464736266/896039768499032064/20211008_212135.jpg" />
+          <link rel="icon" href="https://cdn.discordapp.com/attachments/1077723466494640128/1105421746728865842/uriem_logo_trans.png" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'></link>
           
@@ -157,7 +157,7 @@ export default function Home() {
             <div className='container'>
               <div className='flex items-center justify-between relative' data-aos='fade-down' data-aos-delay='3000'>
                 <div className='px-4'>
-                  <a href='#home' className=' font-extrabold text-xl text-sky-500 block py-5'>
+                  <a href='https://ur-iem.vercel.app/' className=' font-extrabold text-xl text-sky-500 block py-5'>
                     <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
                     {/* <Image src={Logo}/> */}
                   </a>
