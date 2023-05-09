@@ -214,7 +214,7 @@ export default function Home() {
         {/* Header End */}
         
         {/* Hero Section Start */}
-          <section id='home' className=' py-60 hero-bg'>
+          <section id='home' className=' py-80 hero-bg'>
             <div className='container' >
               <div className='flex flex-wrap'>
                 <div id='herowelcome' className='w-full self-center px-4 lg:w-1/2 z-10' data-aos="fade-right" data-aos-delay="3000">
