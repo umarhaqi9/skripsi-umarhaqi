@@ -224,10 +224,10 @@ export default function Home() {
                   <p className='font-base text-white mb-10 leading-relaxed'>
                   Kami akan merekomendasikan IEM yang tepat untuk <span className='font-bold text-sky-500'> anda.</span>
                   </p>
-                  <a href='#contact' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
+                  <a href='#' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
                     Start Now!
                   </a>
-                  <a href='#about' className='text-base font-semibold text-slate-800 bg-white ml-3 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
+                  <a href='#instruction' className='text-base font-semibold text-slate-800 bg-white ml-3 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
                     Learn More
                   </a>
                 </div>
@@ -336,7 +336,7 @@ export default function Home() {
               
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='max-w-xl mx-auto text-center mb-16'>
-                  <a href='' className='text-lg font-semibold text-black dark:text-white hover:text-white bg-transparent hover:bg-slate-800 dark:hover:bg-sky-500 py-3 px-8 border border-black dark:border-white dark:hover:border-sky-500 rounded-full hover:shadow-lg transition duration-300 ease-in-out'>
+                  <a href='#' className='text-lg font-semibold text-black dark:text-white hover:text-white bg-transparent hover:bg-slate-800 dark:hover:bg-sky-500 py-3 px-8 border border-black dark:border-white dark:hover:border-sky-500 rounded-full hover:shadow-lg transition duration-300 ease-in-out'>
                     Start Now!
                   </a>
                 </div>
@@ -360,7 +360,7 @@ export default function Home() {
                     dan Technique for Order Preference by Similarity to an Ideal Solution (TOPSIS) untuk mengkalkulasi
                     rekomendasi produk yang tepat sesuai preferensi yang diinput oleh pengguna.
                   </p>
-                  <a href='' className='text-base font-semibold text-white dark:text-slate-800 bg-slate-800 dark:bg-white py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  <a href='/about' className='text-base font-semibold text-white dark:text-slate-800 bg-slate-800 dark:bg-white py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                     More About Us →
                   </a>
                 </div>
@@ -427,7 +427,7 @@ export default function Home() {
                 </div>
                 
                 
-                <a href='' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                <a href='/list' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                   See All
                 </a>
               </div>

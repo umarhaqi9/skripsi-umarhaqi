@@ -168,65 +168,33 @@ export default function IEMList() {
 
         {/* Header End */}
 
-        {/* About Section Start */}
-        <section id='about' className='pt-36 pb-32 dark:bg-slate-900'>
+        {/* IEM List Start */}
+        <section id='list' className='pt-36 pb-32 bg-white dark:bg-slate-700'>
             <div className='container'>
-              <div className='flex flex-wrap'>
-                <div className='w-full px-4 mb-10 lg:w-1/2 z-10' data-aos="fade-up">
-                  <h4 className='font-bold  text-sky-500 text-lg mb-3'>ABOUT urIEM</h4>
-                  <h2 className='font-bold text-slate-900 text-3xl mb-5 max-w-md lg:text-4xl dark:text-white'>Introduction</h2>
-                  <p className='font-small text-base text-justify mb-8 text-slate-400 max-w-2xl lg:text-lg'>
-                    urIEM adalah sebuah sitem rekomendasi yang bertujuan untuk membantu pengguna memilih
-                    IEM yang tepat. Sistem rekomendasi ini menggunakan metode Analytical Hierarchy Process (AHP) 
-                    dan Technique for Order Preference by Similarity to an Ideal Solution (TOPSIS) untuk mengkalkulasi
-                    rekomendasi produk yang tepat sesuai preferensi yang diinput oleh pengguna.
+              <div className='w-full px-4' data-aos="fade-up">
+                <div className='mx-auto text-center mb-16'>
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>IEMs</h4>
+                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>List of Products</h2>
+                  <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
+                  Berikut adalah beberapa IEM yang tersedia pada sistem ini:
                   </p>
-                  <a href='' className='text-base font-semibold text-white dark:text-slate-800 bg-slate-800 dark:bg-white py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                    More About Us →
-                  </a>
                 </div>
-                <div className='w-full px-4 lg:w-1/2 z-10' data-aos="fade-up">
-                  <h3 className='font-semibold text-slate-900 text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white'>Special Thanks!</h3>
-                  <p className='font-small text-base text-justify text-slate-400 mb-6 max-w-2xl lg:text-lg'>
-                    Pembangunan sistem rekomendasi ini dibantu oleh:
-                  </p>
-                  <div className='flex items-center'>
-                    {/* <SocMedBtn/> */}
+              </div>
 
-                    <div className='mb-5 p-4 text-center w-1/2 lg:w-1/3 mr-3' data-aos="fade-up">
-                      <a href='https://www.youtube.com/@glennlatuheru' target='_blank'>
-                        <div className='rounded-full mx-auto shadow-md w-40 h-40 overflow-hidden hover:scale-110 duration-300 ease-in-out'>
-                          <img src='https://cdn.discordapp.com/attachments/1077723466494640128/1105026586345996288/omglenn.jpg'
-                            className=' w-44 h-40'
-                          />
-                        </div>
-                      </a>
-                      
-                      <h3 className='font-semibold text-md text-black mt-5 mb-1 dark:text-white'>Glenn Latuheru</h3>
-                      <p className='font-small text-base text-slate-500 mb-1'>Sinfonia Music</p>
-                    </div>
-
-                    <div className='mb-5 p-4 text-center w-1/2 lg:w-1/3' data-aos="fade-up">
-                      <a href='https://www.youtube.com/@aftersound_review' target='_blank'>
-                        <div className='rounded-full mx-auto shadow-md overflow-hidden w-40 h-40 hover:scale-110 duration-300 ease-in-out'>
-                          <img src='https://cdn.discordapp.com/attachments/1077723466494640128/1105026586081775676/aftersound_mike.jpg'
-                            className=' w-48 h-40'
-                          />
-                        </div>
-                      </a>
-                      
-                      <h3 className='font-semibold text-md text-black mt-5 mb-1 dark:text-white'>Michael Natanael Sudarsono</h3>
-                      <p className='font-small text-base text-slate-500 mb-1'>Aftersound Review</p>
-                    </div>
-
-                    
-                  </div>
-                  
+              <div className='w-full px-4' data-aos="fade-up">
+                <div className='w-full py-6 flex justify-between bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg mb-8'>
+                  <p className=' text-lg text-black ml-5 text-left'>Moondrop Chu</p>
+                  <p className=' text-lg text-black mr-5 order-last text-right'>Rp279.000</p>
                 </div>
+                
+                
+                <a href='/list' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  See All
+                </a>
               </div>
             </div>
           </section>
-        {/* About Section End */}
+        {/* Skills End */}
 
 
         {/* Footer Start */}
