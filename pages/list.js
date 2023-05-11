@@ -111,7 +111,7 @@ export default function IEMList() {
 
         <header className='bg-slate-800 absolute top-0 left-0 w-full flex items-center z-10'>
             <div className='container'>
-                <div className='flex items-center justify-between relative' data-aos='fade-down' data-aos-delay='500'>
+                <div className='flex items-center justify-between relative'>
                 <div className='px-4'>
                     <a href='https://ur-iem.vercel.app/' className=' font-extrabold text-xl text-sky-500 block py-5'>
                     <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
