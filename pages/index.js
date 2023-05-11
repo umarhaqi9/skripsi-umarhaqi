@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Script from 'next/script';
 import SocMedBtn from '../components/SocMedBtn';
+import { IEM } from '../components/iem_db';
 
 
 
@@ -421,10 +422,22 @@ export default function Home() {
               </div>
 
               <div className='w-full px-4' data-aos="fade-up">
-                <div className='w-full py-6 flex justify-between bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg mb-8'>
-                  <p className=' text-lg text-black ml-5 text-left'>Moondrop Chu</p>
-                  <p className=' text-lg text-black mr-5 order-last text-right'>Rp279.000</p>
-                </div>
+                {IEM.map((iem, i) => {
+                  while(i < 15){
+                    return(
+                      <div key={i} className='w-full py-6 flex justify-between bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg mb-8'>
+                        <p className=' text-lg text-black ml-5 text-left'>{iem.name}</p>
+                        <p className=' text-lg text-black mr-5 order-last text-right'>
+                          {
+                            new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
+                          }
+                        </p>
+                      </div>
+                    )
+                  }
+                  
+                })}
+                
                 
                 
                 <a href='/list' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>

@@ -207,11 +207,6 @@ export default function IEMList() {
                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
                               {
                                 new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
-                                
-                                // (iem.price).toLocaleString('en-US', {
-                                //   style: 'currency',
-                                //   currency: 'IDR'
-                                // })
                               }
                             </td>
                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.bass)}</td>
@@ -232,12 +227,18 @@ export default function IEMList() {
                     </tbody>
                   </table>
                 </div>
+
+                <div className="w-full mb-7">
+                  <p className="text-base text-gray-400">
+                    Ingin mengetahui IEM mana yang cocok untuk anda?
+                  </p>
+                </div>
                 
                 
                 <a href='#' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                   Start Now!
                 </a>
-                <a href='/' className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                <a href='/' className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                   Back to Home
                 </a>
               </div>
