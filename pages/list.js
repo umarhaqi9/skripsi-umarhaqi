@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SocMedBtn from "../components/SocMedBtn";
+import { IEM } from "../components/iem_db";
 
 export default function IEMList() {
   // For Framer motion to track scroll progress
@@ -175,21 +176,69 @@ export default function IEMList() {
                 <div className='mx-auto text-center mb-16'>
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>IEMs</h4>
                   <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>List of Products</h2>
-                  <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
+                  {/* <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                   Berikut adalah beberapa IEM yang tersedia pada sistem ini:
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
               <div className='w-full px-4' data-aos="fade-up">
-                <div className='w-full py-6 flex justify-between bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg mb-8'>
-                  <p className=' text-lg text-black ml-5 text-left'>Moondrop Chu</p>
-                  <p className=' text-lg text-black mr-5 order-last text-right'>Rp279.000</p>
+                <div className=' overflow-auto rounded-lg shadow mb-12'>
+                  <table className="w-full ">
+                    <thead className=" bg-gray-200 border-b-2 border-gray-200 dark:bg-slate-800 dark:text-white">
+                      <tr>
+                        {/* <th className="p-3 w-16 text-sm font-semibold tracking-wide text-left">No.</th> */}
+                        <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Nama</th>
+                        <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Harga</th>
+                        <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Bass</th>
+                        <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Mid</th>
+                        <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Treble</th>
+                        <th className="p-3 w-32 text-sm font-semibold tracking-wide text-center">Jumlah Driver</th>
+                        <th className="p-3 w-24 text-sm font-semibold tracking-wide text-left">Tipe Driver</th>
+                        <th className="p-3 w-32 text-sm font-semibold tracking-wide text-center">Link Beli</th>
+                      </tr>
+                    </thead>
+                    <tbody className=" divide-y divide-gray-100">
+                      {IEM.map((iem, i) => {
+                        return(
+                          <tr className=" dark:bg-slate-900" key={i}>
+                            {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{iem.id}</td> */}
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.name}</td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
+                              {
+                                new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
+                                
+                                // (iem.price).toLocaleString('en-US', {
+                                //   style: 'currency',
+                                //   currency: 'IDR'
+                                // })
+                              }
+                            </td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.bass)}</td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.mid)}</td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.treble)}</td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{iem.jumlahDriver}</td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.tipeDriver}</td>
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                              <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
+                                Click Here
+                              </a>
+                            </td>
+                          </tr>
+                        )
+                        
+                      })}
+                      
+                    </tbody>
+                  </table>
                 </div>
                 
                 
-                <a href='/list' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                  See All
+                <a href='#' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  Start Now!
+                </a>
+                <a href='/' className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  Back to Home
                 </a>
               </div>
             </div>
