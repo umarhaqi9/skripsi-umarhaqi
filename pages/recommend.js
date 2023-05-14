@@ -8,7 +8,7 @@ import SocMedBtn from "../components/SocMedBtn";
 import { IEM } from "../components/iem_db";
 import Link from "next/link";
 
-export default function IEMList() {
+export default function Recommend() {
   // For Framer motion to track scroll progress
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -47,6 +47,7 @@ export default function IEMList() {
       if(e.target != hamburger && e.target != navMenu){
         hamburger.classList.remove('hamburgeractive');
         navMenu.classList.add('hidden');
+        
       }
     })
     
@@ -113,11 +114,11 @@ export default function IEMList() {
             <div className='container'>
                 <div className='flex items-center justify-between relative'>
                 <div className='px-4'>
-                    <Link href='https://ur-iem.vercel.app/'>
-                      <a className=' font-extrabold text-xl text-sky-500 block py-5'>
-                        <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
-                        {/* <Image src={Logo}/> */}
-                      </a>
+                    <Link>
+                        <a href='https://ur-iem.vercel.app/' className=' font-extrabold text-xl text-sky-500 block py-5'>
+                            <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
+                            {/* <Image src={Logo}/> */}
+                        </a>
                     </Link>
                 </div>
                 <div className='flex items-center px-4'>
@@ -136,17 +137,17 @@ export default function IEMList() {
                     <ul className='block lg:flex'>
                         <li className='group'>
                         <Link href='/'>
-                          <a className='text-base font-medium py-2 mx-8 flex  group-hover:text-sky-500 text-white'>Home</a>
+                            <a className='text-base font-medium py-2 mx-8 flex  group-hover:text-sky-500 text-white'>Home</a>
                         </Link>
                         </li>
                         <li className='group'>
                         <Link href='/list'>
-                          <a className='text-base font-medium py-2 mx-8 flex text-sky-500'>List of IEMs</a>
+                            <a  className='text-base font-medium py-2 mx-8 flex group-hover:text-sky-500 text-white'>List of IEMs</a>
                         </Link>
                         </li>
                         <li className='group'>
                         <Link href='/about'>
-                          <a className='text-base font-medium py-2 mx-8 flex group-hover:text-sky-500 text-white'>About Us</a>
+                            <a className='text-base font-medium py-2 mx-8 flex group-hover:text-sky-500 text-white'>About Us</a>
                         </Link>
                         </li>
                         
@@ -177,83 +178,39 @@ export default function IEMList() {
 
         {/* Header End */}
 
-        {/* IEM List Start */}
+        {/* IEM Recommend Start */}
         <section id='list' className='pt-36 pb-32 bg-white dark:bg-slate-700'>
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
-                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>IEMs</h4>
-                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>List of Products</h2>
-                  {/* <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
-                  Berikut adalah beberapa IEM yang tersedia pada sistem ini:
-                  </p> */}
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4>
+                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>Find Your IEM Now!</h2>
+                  <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
+                  Masukkan preferensi anda :
+                  </p>
                 </div>
               </div>
 
               <div className='w-full px-4' data-aos="fade-up">
-                <div className=' overflow-auto rounded-lg shadow mb-12'>
-                  <table className="w-full ">
-                    <thead className=" bg-gray-200 border-b-2 border-gray-200 dark:bg-slate-800 dark:text-white">
-                      <tr>
-                        {/* <th className="p-3 w-16 text-sm font-semibold tracking-wide text-left">No.</th> */}
-                        <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Nama</th>
-                        <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Harga</th>
-                        <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Bass</th>
-                        <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Mid</th>
-                        <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Treble</th>
-                        <th className="p-3 w-32 text-sm font-semibold tracking-wide text-center">Jumlah Driver</th>
-                        <th className="p-3 w-24 text-sm font-semibold tracking-wide text-left">Tipe Driver</th>
-                        <th className="p-3 w-32 text-sm font-semibold tracking-wide text-center">Link Beli</th>
-                      </tr>
-                    </thead>
-                    <tbody className=" divide-y divide-gray-100">
-                      {IEM.map((iem, i) => {
-                        return(
-                          <tr className=" dark:bg-slate-900" key={i}>
-                            {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{iem.id}</td> */}
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.name}</td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
-                              {
-                                new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
-                              }
-                            </td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.bass)}</td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.mid)}</td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{"⭐".repeat(iem.treble)}</td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center dark:text-white">{iem.jumlahDriver}</td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.tipeDriver}</td>
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
-                              <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
-                                Click Here
-                              </a>
-                            </td>
-                          </tr>
-                        )
-                        
-                      })}
-                      
-                    </tbody>
-                  </table>
+                <div className='w-full px-4 bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg' data-aos="fade-up">
+                    <div className="container">
+                        <div className='w-full py-6 flex mb-8'>
+                            <p className=' lg:text-lg text-sm text-black  text-left'>Bass</p>
+                            <input type="range" step={25} name="priority1" className="w-full mx-40 justify-center"/>
+                            <p className=' lg:text-lg text-sm text-black  order-last text-right'> Mid</p>
+                        </div>
+                        <div className='w-full py-6 flex mb-8'>
+                            <p className=' lg:text-lg text-sm text-black  text-left'>Mid</p>
+                            <input type="range" step={25} name="priority1" defaultValue={50} className="w-full mx-40 justify-center"/>
+                            <p className=' lg:text-lg text-sm text-black  order-last text-right'>Treble</p>
+                        </div>
+                        <div className='w-full py-6 flex mb-8'>
+                            <p className=' lg:text-lg text-sm text-black  text-left'>Bass</p>
+                            <input type="range" step={25} name="priority1" className="w-full mx-40 justify-center"/>
+                            <p className=' lg:text-lg text-sm text-black  order-last text-right'>Treble</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div className="w-full mb-7">
-                  <p className="text-base text-gray-400">
-                    Ingin mengetahui IEM mana yang cocok untuk anda?
-                  </p>
-                </div>
-                
-                
-                <Link href='/recommend'>
-                  <a className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                    Start Now!
-                  </a>
-                </Link>
-
-                <Link href='/'>
-                  <a className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                    Back to Home
-                  </a>
-                </Link>
               </div>
             </div>
           </section>

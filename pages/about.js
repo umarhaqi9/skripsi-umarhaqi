@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SocMedBtn from "../components/SocMedBtn";
+import Link from "next/link";
 
 export default function AboutUs() {
   // For Framer motion to track scroll progress
@@ -118,10 +119,12 @@ export default function AboutUs() {
             <div className='container'>
                 <div className='flex items-center justify-between relative'>
                 <div className='px-4'>
-                    <a href='https://ur-iem.vercel.app/' className=' font-extrabold text-xl text-sky-500 block py-5'>
-                    <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
-                    {/* <Image src={Logo}/> */}
-                    </a>
+                    <Link href='https://ur-iem.vercel.app/'>
+                      <a  className=' font-extrabold text-xl text-sky-500 block py-5'>
+                      <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
+                      {/* <Image src={Logo}/> */}
+                      </a>
+                    </Link>
                 </div>
                 <div className='flex items-center px-4'>
                     <button id='hamburger' name='hamburger' type='button' 
@@ -138,13 +141,19 @@ export default function AboutUs() {
                                 bg-slate-800 dark:shadow-slate-500 lg:dark:bg-transparent'>
                     <ul className='block lg:flex'>
                         <li className='group'>
-                        <a href='/' className='text-base font-medium py-2 mx-8 flex  group-hover:text-sky-500 text-white'>Home</a>
+                          <Link href='/'>
+                            <a className='text-base font-medium py-2 mx-8 flex  group-hover:text-sky-500 text-white'>Home</a>
+                          </Link>
                         </li>
                         <li className='group'>
-                        <a href='/list' className='text-base font-medium py-2 mx-8 flex group-hover:text-sky-500 text-white'>List of IEMs</a>
+                          <Link href='/list'>
+                            <a className='text-base font-medium py-2 mx-8 flex group-hover:text-sky-500 text-white'>List of IEMs</a>
+                          </Link>
                         </li>
                         <li className='group'>
-                        <a href='/about' className='text-base font-medium py-2 mx-8 flex text-sky-500'>About Us</a>
+                          <Link href='/about'>
+                            <a className='text-base font-medium py-2 mx-8 flex text-sky-500'>About Us</a>
+                          </Link>
                         </li>
                         
                         <div className=' w-48 mx-auto mt-2 pt-2 border-t border-slate-300 lg:hidden'/>
