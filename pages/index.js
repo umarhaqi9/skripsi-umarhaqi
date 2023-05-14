@@ -393,10 +393,11 @@ export default function Home() {
                 })}
                 
                 
-                
-                <a href='/list' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                  See All
-                </a>
+                <Link href='/list'>
+                  <a className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                    See All
+                  </a>
+                </Link>
               </div>
             </div>
           </section>
