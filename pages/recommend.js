@@ -193,22 +193,28 @@ export default function IEMRecommend() {
               </div>
 
               <div className='w-full px-4' data-aos="fade-up">
-                <div className='w-full px-4 bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg' data-aos="fade-up">
+                <div className='w-full p-4 bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
                         <div className='w-full py-6 flex mb-8'>
-                            <p className=' lg:text-lg text-sm text-black  text-left'>Bass</p>
-                            <input type="range" step={25} name="priority1" className="w-full mx-40 justify-center"/>
-                            <p className=' lg:text-lg text-sm text-black  order-last text-right'> Mid</p>
+                            <p className=' lg:text-lg text-sm text-black  w-1/6 text-left'>Bass</p>
+                            <div className=" w-4/6">
+                                <input type="range" step={25} name="priority1" defaultValue={50} className="w-full justify-center"/>
+                            </div>
+                            <p className=' lg:text-lg text-sm text-black  w-1/6 order-last text-right'>Mid</p>
                         </div>
                         <div className='w-full py-6 flex mb-8'>
-                            <p className=' lg:text-lg text-sm text-black  text-left'>Mid</p>
-                            <input type="range" step={25} name="priority2" defaultValue={50} className="w-full mx-40 justify-center"/>
-                            <p className=' lg:text-lg text-sm text-black  order-last text-right'>Treble</p>
+                            <p className=' lg:text-lg text-sm text-black w-1/6 text-left'>Mid</p>
+                            <div className="w-4/6">
+                                <input type="range" step={25} name="priority2" defaultValue={50} className="w-full justify-center"/>
+                            </div>
+                            <p className=' lg:text-lg text-sm text-black w-1/6 order-last text-right'>Treble</p>
                         </div>
                         <div className='w-full py-6 flex mb-8'>
-                            <p className=' lg:text-lg text-sm text-black  text-left'>Bass</p>
-                            <input type="range" step={25} name="priority3" className="w-full mx-40 justify-center"/>
-                            <p className=' lg:text-lg text-sm text-black  order-last text-right'>Treble</p>
+                            <p className=' lg:text-lg text-sm text-black w-1/6 text-left'>Bass</p>
+                            <div className="w-4/6">
+                                <input type="range" step={25} name="priority3" defaultValue={50} className="w-full justify-center"/>
+                            </div>
+                            <p className=' lg:text-lg text-sm text-black w-1/6 order-last text-right'>Treble</p>
                         </div>
                     </div>
                 </div>
