@@ -235,11 +235,11 @@ export default function Home() {
                   <p className='font-base text-white mb-10 leading-relaxed'>
                   Kami akan merekomendasikan IEM yang tepat untuk <span className='font-bold text-sky-500'> anda.</span>
                   </p>
-                  <Link href='/recommend'>
-                    <a className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
+                  {/* <Link > */}
+                    <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
                       Start Now!
                     </a>
-                  </Link>
+                  {/* </Link> */}
                   <Link href='#instruction'>
                     <a className='text-base font-semibold text-slate-800 bg-white ml-3 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out'>
                       Learn More

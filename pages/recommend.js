@@ -6,9 +6,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SocMedBtn from "../components/SocMedBtn";
 import { IEM } from "../components/iem_db";
-import Link from "next/link";
+import Link from 'next/link';
 
-export default function Recommend() {
+
+export default function IEMRecommend() {
   // For Framer motion to track scroll progress
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -114,8 +115,8 @@ export default function Recommend() {
             <div className='container'>
                 <div className='flex items-center justify-between relative'>
                 <div className='px-4'>
-                    <Link>
-                        <a href='https://ur-iem.vercel.app/' className=' font-extrabold text-xl text-sky-500 block py-5'>
+                    <Link href='https://ur-iem.vercel.app/'>
+                        <a  className=' font-extrabold text-xl text-sky-500 block py-5'>
                             <h1 className=' text-3xl font-extrabold italic'>urIEM</h1>
                             {/* <Image src={Logo}/> */}
                         </a>
@@ -179,7 +180,7 @@ export default function Recommend() {
         {/* Header End */}
 
         {/* IEM Recommend Start */}
-        <section id='list' className='pt-36 pb-32 bg-white dark:bg-slate-700'>
+        <section id='recommend' className='pt-36 pb-32 bg-white dark:bg-slate-700'>
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
@@ -201,12 +202,12 @@ export default function Recommend() {
                         </div>
                         <div className='w-full py-6 flex mb-8'>
                             <p className=' lg:text-lg text-sm text-black  text-left'>Mid</p>
-                            <input type="range" step={25} name="priority1" defaultValue={50} className="w-full mx-40 justify-center"/>
+                            <input type="range" step={25} name="priority2" defaultValue={50} className="w-full mx-40 justify-center"/>
                             <p className=' lg:text-lg text-sm text-black  order-last text-right'>Treble</p>
                         </div>
                         <div className='w-full py-6 flex mb-8'>
                             <p className=' lg:text-lg text-sm text-black  text-left'>Bass</p>
-                            <input type="range" step={25} name="priority1" className="w-full mx-40 justify-center"/>
+                            <input type="range" step={25} name="priority3" className="w-full mx-40 justify-center"/>
                             <p className=' lg:text-lg text-sm text-black  order-last text-right'>Treble</p>
                         </div>
                     </div>
