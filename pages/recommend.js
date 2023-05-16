@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import Head from "next/head";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SocMedBtn from "../components/SocMedBtn";
@@ -91,6 +91,14 @@ export default function IEMRecommend() {
     });
     
   })
+
+  const preference = useRef();
+
+  function calculate(){
+
+  }
+
+
   
     return (
     <>
@@ -193,29 +201,98 @@ export default function IEMRecommend() {
               </div>
 
               <div className='w-full px-4' data-aos="fade-up">
-                <div className='w-full p-4 bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg' data-aos="fade-up">
+                <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
-                        <div className='w-full py-6 flex mb-8'>
-                            <p className=' lg:text-lg text-sm text-black  w-1/6 text-left'>Bass</p>
-                            <div className=" w-4/6">
-                                <input type="range" step={25} name="priority1" defaultValue={50} className="w-full justify-center"/>
-                            </div>
-                            <p className=' lg:text-lg text-sm text-black  w-1/6 order-last text-right'>Mid</p>
-                        </div>
-                        <div className='w-full py-6 flex mb-8'>
-                            <p className=' lg:text-lg text-sm text-black w-1/6 text-left'>Mid</p>
-                            <div className="w-4/6">
-                                <input type="range" step={25} name="priority2" defaultValue={50} className="w-full justify-center"/>
-                            </div>
-                            <p className=' lg:text-lg text-sm text-black w-1/6 order-last text-right'>Treble</p>
-                        </div>
-                        <div className='w-full py-6 flex mb-8'>
-                            <p className=' lg:text-lg text-sm text-black w-1/6 text-left'>Bass</p>
-                            <div className="w-4/6">
-                                <input type="range" step={25} name="priority3" defaultValue={50} className="w-full justify-center"/>
-                            </div>
-                            <p className=' lg:text-lg text-sm text-black w-1/6 order-last text-right'>Treble</p>
-                        </div>
+                        <form ref={preference} onSubmit={calculate}>
+                          <div className='w-full py-6 flex mb-8'>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
+                              <div className=" w-4/6">
+                                  <input type="range" step={25} name="priority1" defaultValue={50} className="w-full justify-center"/>
+                              </div>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Mid</p>
+                          </div>
+                          <div className='w-full py-6 flex mb-8'>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Mid</p>
+                              <div className="w-4/6">
+                                  <input type="range" step={25} name="priority2" defaultValue={50} className="w-full justify-center"/>
+                              </div>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
+                          </div>
+                          <div className='w-full py-6 flex mb-8'>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
+                              <div className="w-4/6">
+                                  <input type="range" step={25} name="priority3" defaultValue={50} className="w-full justify-center"/>
+                              </div>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
+                          </div>
+                          <div className='w-full py-6 flex mb-2'>
+                              <p className='w-full lg:text-lg text-sm text-black dark:text-white lg:w-1/6 text-left'>Price Range :</p>
+                              <div className="lg:w-4/6">
+                                  <select type="dropdown" name="price" className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
+                                    <option value={300000}> Under Rp300.000 </option>
+                                    <option value={500000}> Under Rp500.000 </option>
+                                    <option value={700000}> Under Rp700.000 </option>
+                                    <option value={900000}> Under Rp900.000 </option>
+                                  </select>
+                              </div>
+                              
+                          </div>
+                          <div className="w-full py-6 flex">
+                            <button type="submit" className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                              Find IEM
+                            </button>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+              </div>
+
+              {/* Result Section */}
+              <div className='w-full px-4 mt-20' data-aos="fade-up">
+                <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
+                    <div className="container">
+                    <div className='w-full px-4'>
+                      <div className='mx-auto text-center mb-16'>
+                        {/* <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4> */}
+                        <h2 className='font-bold text-black dark:text-white text-4xl mb-4 mt-8'>Here is Your IEM!</h2>
+                        <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
+                        Ini adalah beberapa IEM yang sesuai dengan preferensi anda :
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className=' overflow-auto rounded-lg shadow mb-12'>
+                        <table className="w-full">
+                          <thead className=" bg-gray-200 border-b-2 border-gray-200 dark:bg-slate-800 dark:text-white">
+                            <tr>
+                              {/* <th className="p-3 w-16 text-sm font-semibold tracking-wide text-left">No.</th> */}
+                              <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Nama</th>
+                              <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Preferensi</th>
+                              <th className="p-3 w-32 text-sm font-semibold tracking-wide text-center">Link Beli</th>
+                            </tr>
+                          </thead>
+                          <tbody className=" divide-y divide-gray-100">
+                            {IEM.map((iem, i) => {
+                              return(
+                                <tr className=" dark:bg-slate-900" key={i}>
+                                  {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{iem.id}</td> */}
+                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.name}</td>
+                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
+                                    {
+                                      new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
+                                    }
+                                  </td>
+                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                                    <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
+                                      Click Here
+                                    </a>
+                                  </td>
+                                </tr>
+                              )
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                 </div>
               </div>

@@ -229,9 +229,7 @@ export default function IEMList() {
                             </td>
                           </tr>
                         )
-                        
                       })}
-                      
                     </tbody>
                   </table>
                 </div>
