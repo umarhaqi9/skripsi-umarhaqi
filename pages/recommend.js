@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import Head from "next/head";
 import Script from "next/script";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SocMedBtn from "../components/SocMedBtn";
@@ -92,11 +92,254 @@ export default function IEMRecommend() {
     
   })
 
-  const preference = useRef();
+  // const preference = useRef();
+  const [priority1, setPriority1] = useState(50);
+  const [priority2, setPriority2] = useState(50);
+  const [priority3, setPriority3] = useState(50);
+  const [price, setPrice] = useState(null);
 
   function calculate(){
+    console.log("Prioritas 1 :" + priority1);
+    console.log("Prioritas 2 :" + priority2);
+    console.log("Prioritas 3 :" + priority3);
+    console.log("Price :" + price);
+    // --------------------------------------------
+    // AHP
+    const bobotPrioritas = [
+      [1,1,1],
+      [1,1,1],
+      [1,1,1]
+    ]
+
+    // check priority1
+    if(priority1 == 50){
+      bobotPrioritas[0][1]= 1;
+      bobotPrioritas[1][0]= 1;
+    } 
+    else if(priority1 == 25){
+      bobotPrioritas[0][1]= 2;
+      bobotPrioritas[1][0]= 1/2;
+    }
+    else if(priority1 == 0){
+      bobotPrioritas[0][1]= 3;
+      bobotPrioritas[1][0]= 1/3;
+    }
+    else if(priority1 == 75){
+      bobotPrioritas[0][1]= 1/2;
+      bobotPrioritas[1][0]= 2;
+    }
+    else if(priority1 == 100){
+      bobotPrioritas[0][1]= 1/3;
+      bobotPrioritas[1][0]= 3;
+    }
+    
+    // check priority2
+    if(priority2 == 50){
+      bobotPrioritas[1][2]= 1;
+        bobotPrioritas[2][1]= 1;
+    } 
+    else if(priority2 == 25){
+      bobotPrioritas[1][2]= 2;
+        bobotPrioritas[2][1]= 1/2;
+    }
+    else if(priority2 == 0){
+      bobotPrioritas[1][2]= 3;
+        bobotPrioritas[2][1]= 1/3;
+    }
+    else if(priority2 == 75){
+      bobotPrioritas[1][2]= 1/2;
+        bobotPrioritas[2][1]= 2;
+    }
+    else if(priority2 == 100){
+      bobotPrioritas[1][2]= 1/3;
+        bobotPrioritas[2][1]= 3;
+    }
+    
+    // check priority3
+    if(priority3 == 50){
+      bobotPrioritas[0][2]= 1;
+      bobotPrioritas[2][0]= 1;
+    } 
+    else if(priority3 == 25){
+      bobotPrioritas[0][2]= 2;
+      bobotPrioritas[2][0]= 1/2;
+    }
+    else if(priority3 == 0){
+      bobotPrioritas[0][2]= 3;
+      bobotPrioritas[2][0]= 1/3;
+    }
+    else if(priority3 == 75){
+      bobotPrioritas[0][2]= 1/2;
+      bobotPrioritas[2][0]= 2;
+    }
+    else if(priority3 == 100){
+      bobotPrioritas[0][2]= 1/3;
+      bobotPrioritas[2][0]= 3;
+    }
+
+    console.log(bobotPrioritas);
+
+    const sum = [1,1,1];
+
+    for(let i = 0; i < 3; i++){
+      let totalSum = 0;
+      for(let j = 0; j < 3; j++){
+        totalSum += bobotPrioritas[j][i];
+      }
+      sum[i] = totalSum;
+    }
+
+    console.log("Sum :" + sum);
+
+    const normalisasi = [
+      [1,1,1],
+      [1,1,1],
+      [1,1,1]
+    ];
+
+    for(let i=0; i < sum.length; i++){
+      for(let j=0; j < sum.length; j++){
+        normalisasi[i][j] = bobotPrioritas[i][j]/sum[j];
+      }
+    }
+
+    console.log(normalisasi);
+
+    const sumVector = [1,1,1];
+    const eigenVector = [1,1,1];
+
+    for(let i=0; i < 3; i++){
+      let total = 0;
+      for(let j=0; j < 3; j++){
+        total += normalisasi[i][j];
+      }
+      sumVector[i] = total;
+      eigenVector[i] = sumVector[i]/sum.length;
+    }
+
+    console.log("Sum Vector : " + sumVector);
+    console.log("Eigen Vector : " + eigenVector);
+
+    const eigenValue = [1,1,1];
+
+    for(let i=0; i < 3; i++){
+      eigenValue[i] = sum[i] * eigenVector[i];
+    }
+
+    console.log("Eigen Value : " + eigenValue);
+
+    let eigenMax = 0;
+
+    for(let i=0; i < eigenValue.length; i++){
+      eigenMax += eigenValue[i];
+    }
+
+    console.log("Eigen Maks : " + eigenMax);
+
+    const CI = (eigenMax-3)/(3-1);
+    const CR = CI/0.58;
+
+    console.log("CI : " + CI);
+    console.log("CR : " + CR);
+
+    if(CR > 0.1){
+      return alert("Hasil input preferensi anda tidak konsisten, mohon masukkan ulang preferensi anda.");
+    } else {
+      console.log("Hasil input preferensi anda sudah konsisten, proses perhitungan dapat dilanjutkan ke dalam tahap TOPSIS.");
+      
+      // TOPSIS
+
+      // Menentukan matriks ternormalisasi
+      let sumBass = 0;
+      let sumMid = 0;
+      let sumTreble = 0;
+
+      IEM.forEach((iem) => {
+        sumBass += iem.bass * iem.bass;
+        sumMid += iem.mid * iem.mid;
+        sumTreble += iem.treble * iem.treble;
+      });
+
+      sumBass = Math.sqrt(sumBass);
+      sumMid = Math.sqrt(sumMid);
+      sumTreble = Math.sqrt(sumTreble);
+
+      console.log("Sum Bass : " + sumBass);
+      console.log("Sum Mid : " + sumMid);
+      console.log("Sum Treble : " + sumTreble);
+
+      const normalisasiIEM = [];
+      const normalisasiBobotIEM = [];
+
+      IEM.forEach((iem) => {
+        let bass = 0;
+        let mid = 0;
+        let treble = 0;
+
+        bass += iem.bass/sumBass;
+        mid += iem.mid/sumMid;
+        treble += iem.treble/sumTreble;
+
+        normalisasiIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli]);
+
+        bass = bass * eigenVector[0];
+        mid = mid * eigenVector[1];
+        treble = treble * eigenVector[2];
+
+        normalisasiBobotIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli]);
+
+      })
+      
+      console.log(normalisasiIEM);
+      console.log(normalisasiBobotIEM);
+
+      // Solusi ideal
+
+      const totalBass = [];
+      const totalMid = [];
+      const totalTreble = [];
+
+      normalisasiBobotIEM.forEach((iem) => {
+        totalBass.push(iem[2]);
+        totalMid.push(iem[3]);
+        totalTreble.push(iem[4]);
+      })
+
+      console.log(totalBass);
+      console.log(totalMid);
+      console.log(totalTreble);
+
+      let solusiPositifBass = Math.max(...totalBass);
+      let solusiNegatifBass = Math.min(...totalBass);
+      let solusiPositifMid = Math.max(...totalMid);
+      let solusiNegatifMid = Math.min(...totalMid);
+      let solusiPositifTreble = Math.max(...totalBass);
+      let solusiNegatifTreble = Math.min(...totalBass);
+
+      console.log("S- Bass : "+solusiNegatifBass);
+      console.log("S+ Bass : "+solusiPositifBass);
+      console.log("S- Mid : "+solusiNegatifMid);
+      console.log("S+ Mid : "+solusiPositifMid);
+      console.log("S- Treble : "+solusiNegatifTreble);
+      console.log("S+ Bass : "+solusiPositifTreble);
+
+      normalisasiBobotIEM.forEach((iem) => {
+        let sPositif = 0;
+        let sNegatif = 0;
+        
+        sPositif += Math.sqrt((iem[2]-solusiPositifBass)^2+(iem[3]));
+      })
+
+
+
+    }
 
   }
+
+  // const calculateIEM = (e) => {
+  //   // e.preventDefault();
+  //   console.log(preference.current);
+  // }
 
 
   
@@ -203,46 +446,47 @@ export default function IEMRecommend() {
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
-                        <form ref={preference} onSubmit={calculate}>
+                        {/* <form ref={preference} onSubmit={calculateIEM}> */}
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
                               <div className=" w-4/6">
-                                  <input type="range" step={25} name="priority1" defaultValue={50} className="w-full justify-center"/>
+                                  <input type="range" step={25} name="priority1" defaultValue={50} onChange={(e) => setPriority1(e.target.value)} className="w-full justify-center"/>
                               </div>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Mid</p>
                           </div>
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Mid</p>
                               <div className="w-4/6">
-                                  <input type="range" step={25} name="priority2" defaultValue={50} className="w-full justify-center"/>
+                                  <input type="range" step={25} name="priority2" defaultValue={50} onChange={(e) => setPriority2(e.target.value)} className="w-full justify-center"/>
                               </div>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
                           </div>
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
                               <div className="w-4/6">
-                                  <input type="range" step={25} name="priority3" defaultValue={50} className="w-full justify-center"/>
+                                  <input type="range" step={25} name="priority3" defaultValue={50} onChange={(e) => setPriority3(e.target.value)} className="w-full justify-center"/>
                               </div>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
                           </div>
                           <div className='w-full py-6 flex mb-2'>
                               <p className='w-full lg:text-lg text-sm text-black dark:text-white lg:w-1/6 text-left'>Price Range :</p>
                               <div className="lg:w-4/6">
-                                  <select type="dropdown" name="price" className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
-                                    <option value={300000}> Under Rp300.000 </option>
-                                    <option value={500000}> Under Rp500.000 </option>
-                                    <option value={700000}> Under Rp700.000 </option>
-                                    <option value={900000}> Under Rp900.000 </option>
+                                  <select type="dropdown" defaultValue={null} name="price" onChange={(e) => setPrice(e.target.value)} className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
+                                    <option> Any </option>
+                                    <option value="300000"> Under Rp300.000 </option>
+                                    <option value="500000"> Under Rp500.000 </option>
+                                    <option value="700000"> Under Rp700.000 </option>
+                                    <option value="900000"> Under Rp900.000 </option>
                                   </select>
                               </div>
                               
                           </div>
                           <div className="w-full py-6 flex">
-                            <button type="submit" className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            <button id="submit" onClick={calculate} className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
                               Find IEM
                             </button>
                           </div>
-                        </form>
+                        {/* </form> */}
                     </div>
                 </div>
               </div>
