@@ -96,13 +96,14 @@ export default function IEMRecommend() {
   const [priority1, setPriority1] = useState(50);
   const [priority2, setPriority2] = useState(50);
   const [priority3, setPriority3] = useState(50);
-  const [price, setPrice] = useState(null);
+  const [priceRange, setPriceRange] = useState(0);
+  const [dataRekomendasiIEM, setDataRekomendasiIEM] = useState([]);
 
   function calculate(){
     console.log("Prioritas 1 :" + priority1);
     console.log("Prioritas 2 :" + priority2);
     console.log("Prioritas 3 :" + priority3);
-    console.log("Price :" + price);
+    console.log("Price :" + priceRange);
     // --------------------------------------------
     // AHP
     const bobotPrioritas = [
@@ -246,9 +247,9 @@ export default function IEMRecommend() {
       return alert("Hasil input preferensi anda tidak konsisten, mohon masukkan ulang preferensi anda.");
     } else {
       console.log("Hasil input preferensi anda sudah konsisten, proses perhitungan dapat dilanjutkan ke dalam tahap TOPSIS.");
-      
+      // -------------------------------------------
       // TOPSIS
-
+      // -------------------------------------------
       // Menentukan matriks ternormalisasi
       let sumBass = 0;
       let sumMid = 0;
@@ -309,27 +310,54 @@ export default function IEMRecommend() {
       console.log(totalMid);
       console.log(totalTreble);
 
-      let solusiPositifBass = Math.max(...totalBass);
-      let solusiNegatifBass = Math.min(...totalBass);
-      let solusiPositifMid = Math.max(...totalMid);
-      let solusiNegatifMid = Math.min(...totalMid);
-      let solusiPositifTreble = Math.max(...totalBass);
-      let solusiNegatifTreble = Math.min(...totalBass);
+      let yNegatifBass = Math.max(...totalBass);
+      let yPositifBass = Math.min(...totalBass);
+      let yNegatifMid = Math.max(...totalMid);
+      let yPositifMid = Math.min(...totalMid);
+      let yNegatifTreble = Math.max(...totalTreble);
+      let yPositifTreble = Math.min(...totalTreble);
 
-      console.log("S- Bass : "+solusiNegatifBass);
-      console.log("S+ Bass : "+solusiPositifBass);
-      console.log("S- Mid : "+solusiNegatifMid);
-      console.log("S+ Mid : "+solusiPositifMid);
-      console.log("S- Treble : "+solusiNegatifTreble);
-      console.log("S+ Bass : "+solusiPositifTreble);
+      console.log("y- Bass : "+yNegatifBass);
+      console.log("y+ Bass : "+yPositifBass);
+      console.log("y- Mid : "+yNegatifMid);
+      console.log("y+ Mid : "+yPositifMid);
+      console.log("y- Treble : "+yNegatifTreble);
+      console.log("y+ Treble : "+yPositifTreble);
+
+      let solusiIdealIEM = [];
 
       normalisasiBobotIEM.forEach((iem) => {
         let sPositif = 0;
         let sNegatif = 0;
         
-        sPositif += Math.sqrt((iem[2]-solusiPositifBass)^2+(iem[3]));
-      })
+        sPositif += Math.sqrt(((iem[2]-yPositifBass)*(iem[2]-yPositifBass))+((iem[3]-yPositifMid)*(iem[3]-yPositifMid))+((iem[4]-yPositifTreble)*(iem[4]-yPositifTreble)));
+        sNegatif += Math.sqrt(((iem[2]-yNegatifBass)*(iem[2]-yNegatifBass))+((iem[3]-yNegatifMid)*(iem[3]-yNegatifMid))+((iem[4]-yNegatifTreble)*(iem[4]-yNegatifTreble)));
 
+        
+        solusiIdealIEM.push({name: iem[0], price:iem[1], sPositif: sPositif, sNegatif: sNegatif, linkBeli: iem[5]});
+        
+      })
+      console.log(solusiIdealIEM);
+
+      let rekomendasiIEM = [];
+
+      solusiIdealIEM.forEach((iem) => {
+        let preferensi = 0;
+        preferensi += iem.sNegatif/(iem.sPositif + iem.sNegatif);
+
+        rekomendasiIEM.push({name: iem.name, price: iem.price, preferensi: preferensi, linkBeli: iem.linkBeli});
+
+      })
+      console.log(rekomendasiIEM);
+
+
+      
+      if(priceRange >= 0){
+        let filteredDataIEM = rekomendasiIEM.filter((iem) => iem.price <= priceRange);
+        setDataRekomendasiIEM(filteredDataIEM);
+      } else{
+        setDataRekomendasiIEM(rekomendasiIEM);
+      }
 
 
     }
@@ -471,12 +499,12 @@ export default function IEMRecommend() {
                           <div className='w-full py-6 flex mb-2'>
                               <p className='w-full lg:text-lg text-sm text-black dark:text-white lg:w-1/6 text-left'>Price Range :</p>
                               <div className="lg:w-4/6">
-                                  <select type="dropdown" defaultValue={null} name="price" onChange={(e) => setPrice(e.target.value)} className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
+                                  <select type="dropdown" defaultValue={0} name="price" onChange={(e) => setPriceRange(e.target.value)} className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
                                     <option> Any </option>
-                                    <option value="300000"> Under Rp300.000 </option>
-                                    <option value="500000"> Under Rp500.000 </option>
-                                    <option value="700000"> Under Rp700.000 </option>
-                                    <option value="900000"> Under Rp900.000 </option>
+                                    <option value={300000}> Under Rp300.000 </option>
+                                    <option value={500000}> Under Rp500.000 </option>
+                                    <option value={700000}> Under Rp700.000 </option>
+                                    <option value={900000}> Under Rp900.000 </option>
                                   </select>
                               </div>
                               
@@ -511,19 +539,19 @@ export default function IEMRecommend() {
                             <tr>
                               {/* <th className="p-3 w-16 text-sm font-semibold tracking-wide text-left">No.</th> */}
                               <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Nama</th>
-                              <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Preferensi</th>
+                              <th className="p-3 w-44 text-sm font-semibold tracking-wide text-center">Preferensi</th>
                               <th className="p-3 w-32 text-sm font-semibold tracking-wide text-center">Link Beli</th>
                             </tr>
                           </thead>
                           <tbody className=" divide-y divide-gray-100">
-                            {IEM.map((iem, i) => {
+                            {dataRekomendasiIEM.map((iem, i) => {
                               return(
                                 <tr className=" dark:bg-slate-900" key={i}>
-                                  {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{iem.id}</td> */}
                                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.name}</td>
-                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
+                                  {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">{Math.floor((iem.preferensi * 100)).toFixed(1)}%</td> */}
+                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">
                                     {
-                                      new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
+                                      new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
                                     }
                                   </td>
                                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">

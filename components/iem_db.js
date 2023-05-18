@@ -3,7 +3,7 @@ export const IEM = [
     {
         id: "1",
         name: "KZ ZS10 Pro",
-        price: "399900",
+        price: 399900,
         bass: 4,
         mid: 3,
         treble: 3,
@@ -14,7 +14,7 @@ export const IEM = [
     {
         id: "2",
         name: "KZ ZSN Pro",
-        price: "165000",
+        price: 165000,
         bass: 4,
         mid: 2,
         treble: 4,
@@ -25,7 +25,7 @@ export const IEM = [
     {
         id: "3",
         name: "KZ DQ6",
-        price: "269000",
+        price: 269000,
         bass: 4,
         mid: 2,
         treble: 4,
@@ -36,7 +36,7 @@ export const IEM = [
     {
         id: "4",
         name: "KZ CRN / ZEX Pro",
-        price: "259000",
+        price: 259000,
         bass: 3,
         mid: 3,
         treble: 3,
@@ -47,7 +47,7 @@ export const IEM = [
     {
         id: "5",
         name: "KZ EDX Pro",
-        price: "79000",
+        price: 79000,
         bass: 5,
         mid: 2,
         treble: 3,
@@ -60,7 +60,7 @@ export const IEM = [
     {
         id: "6",
         name: "Moondrop Chu",
-        price: "279000",
+        price: 279000,
         bass: 3,
         mid: 4,
         treble: 4,
@@ -71,7 +71,7 @@ export const IEM = [
     {
         id: "7",
         name: "Moondrop Starfield",
-        price: "1650000",
+        price: 1650000,
         bass: 4,
         mid: 3,
         treble: 2,
@@ -82,7 +82,7 @@ export const IEM = [
     {
         id: "8",
         name: "Moondrop Aria",
-        price: "1150000",
+        price: 1150000,
         bass: 4,
         mid: 3,
         treble: 2,
@@ -93,7 +93,7 @@ export const IEM = [
     {
         id: "9",
         name: "Moondrop SSR",
-        price: "600000",
+        price: 600000,
         bass: 1,
         mid: 3,
         treble: 5,
@@ -104,7 +104,7 @@ export const IEM = [
     {
         id: "10",
         name: "Moondrop Blessing 2",
-        price: "4600000",
+        price: 4600000,
         bass: 3,
         mid: 3,
         treble: 4,
@@ -115,7 +115,7 @@ export const IEM = [
     {
         id: "11",
         name: "Moondrop KATO",
-        price: "2700000",
+        price: 2700000,
         bass: 4,
         mid: 3,
         treble: 4,
@@ -126,7 +126,7 @@ export const IEM = [
     {
         id: "12",
         name: "Moondrop Quarks",
-        price: "175000",
+        price: 175000,
         bass: 3,
         mid: 4,
         treble: 2,
@@ -137,7 +137,7 @@ export const IEM = [
     {
         id: "13",
         name: "Moondrop SSP",
-        price: "600000",
+        price: 600000,
         bass: 4,
         mid: 2,
         treble: 3,
@@ -148,7 +148,7 @@ export const IEM = [
     {
         id: "14",
         name: "Moondrop S8",
-        price: "9500000",
+        price: 9500000,
         bass: 4,
         mid: 3,
         treble: 3,
@@ -161,7 +161,7 @@ export const IEM = [
     {
         id: "15",
         name: "FiiO FH3",
-        price: "1750000",
+        price: 1750000,
         bass: 4,
         mid: 3,
         treble: 2,
@@ -172,7 +172,7 @@ export const IEM = [
     {
         id: "16",
         name: "FiiO FD3",
-        price: "1305000",
+        price: 1305000,
         bass: 5,
         mid: 2,
         treble: 3,
@@ -185,7 +185,7 @@ export const IEM = [
     {
         id: "17",
         name: "7hz Salnotes Zero",
-        price: "235000",
+        price: 235000,
         bass: 3,
         mid: 4,
         treble: 4,
@@ -196,7 +196,7 @@ export const IEM = [
     {
         id: "18",
         name: "7hz Timeless",
-        price: "2599000",
+        price: 2599000,
         bass: 4,
         mid: 3,
         treble: 5,
@@ -207,7 +207,7 @@ export const IEM = [
     {
         id: "19",
         name: "7hz Dioko",
-        price: "1116250",
+        price: 1116250,
         bass: 2,
         mid: 3,
         treble: 5,
@@ -220,7 +220,7 @@ export const IEM = [
     {
         id: "20",
         name: "CCA CRA",
-        price: "115000",
+        price: 115000,
         bass: 5,
         mid: 2,
         treble: 4,
@@ -231,7 +231,7 @@ export const IEM = [
     {
         id: "21",
         name: "CCA CRA+",
-        price: "189000",
+        price: 189000,
         bass: 4,
         mid: 2,
         treble: 4,
@@ -244,7 +244,7 @@ export const IEM = [
     {
         id: "22",
         name: "HZSound Heart Mirror",
-        price: "685000",
+        price: 685000,
         bass: 2,
         mid: 3,
         treble: 4,
@@ -257,7 +257,7 @@ export const IEM = [
     {
         id: "23",
         name: "Tanchjim Tanya",
-        price: "195000",
+        price: 195000,
         bass: 4,
         mid: 2,
         treble: 3,
@@ -268,7 +268,7 @@ export const IEM = [
     {
         id: "24",
         name: "Tanchjim Ola",
-        price: "540000",
+        price: 540000,
         bass: 2,
         mid: 4,
         treble: 3,
@@ -279,7 +279,7 @@ export const IEM = [
     {
         id: "25",
         name: "Tanchjim Oxygen",
-        price: "3350000",
+        price: 3350000,
         bass: 4,
         mid: 3,
         treble: 3,
@@ -290,7 +290,7 @@ export const IEM = [
     {
         id: "26",
         name: "Tanchjim Hana",
-        price: "2499000",
+        price: 2499000,
         bass: 3,
         mid: 4,
         treble: 3,
@@ -301,7 +301,7 @@ export const IEM = [
     {
         id: "27",
         name: "Tanchjim Zero",
-        price: "195000",
+        price: 195000,
         bass: 3,
         mid: 3,
         treble: 4,
@@ -314,7 +314,7 @@ export const IEM = [
     {
         id: "28",
         name: "Tin T2",
-        price: "450000",
+        price: 450000,
         bass: 2,
         mid: 2,
         treble: 5,
@@ -325,7 +325,7 @@ export const IEM = [
     {
         id: "29",
         name: "Tin T2 Plus",
-        price: "610000",
+        price: 610000,
         bass: 3,
         mid: 3,
         treble: 4,
@@ -336,7 +336,7 @@ export const IEM = [
     {
         id: "30",
         name: "Tin T3",
-        price: "725000",
+        price: 725000,
         bass: 2,
         mid: 2,
         treble: 4,
@@ -347,7 +347,7 @@ export const IEM = [
     {
         id: "31",
         name: "Tin P1",
-        price: "1700000",
+        price: 1700000,
         bass: 2,
         mid: 4,
         treble: 4,
@@ -358,7 +358,7 @@ export const IEM = [
     {
         id: "32",
         name: "Tin T4",
-        price: "1020000",
+        price: 1020000,
         bass: 4,
         mid: 3,
         treble: 4,
@@ -369,7 +369,7 @@ export const IEM = [
     {
         id: "33",
         name: "Tin C2 Mech Warrior",
-        price: "349000",
+        price: 349000,
         bass: 4,
         mid: 3,
         treble: 3,
@@ -382,7 +382,7 @@ export const IEM = [
     {
         id: "34",
         name: "Blon BL03",
-        price: "299000",
+        price: 299000,
         bass: 5,
         mid: 3,
         treble: 4,
@@ -395,7 +395,7 @@ export const IEM = [
     {
         id: "35",
         name: "Tripowin Lea",
-        price: "270000",
+        price: 270000,
         bass: 3,
         mid: 4,
         treble: 3,
@@ -406,7 +406,7 @@ export const IEM = [
     {
         id: "36",
         name: "Tripowin Mele",
-        price: "699000",
+        price: 699000,
         bass: 5,
         mid: 3,
         treble: 3,
