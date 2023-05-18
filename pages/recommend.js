@@ -104,6 +104,16 @@ export default function IEMRecommend() {
     console.log("Prioritas 2 :" + priority2);
     console.log("Prioritas 3 :" + priority3);
     console.log("Price :" + priceRange);
+
+    const inputSection = document.querySelector('#inputSection');
+    const result = document.querySelector('#result');
+    const submitButton = document.querySelector('#submitButton');
+    const loadingButton = document.querySelector('#loadingButton');
+
+    submitButton.classList.add('hidden');
+    loadingButton.classList.remove('hidden');
+    
+
     // --------------------------------------------
     // AHP
     const bobotPrioritas = [
@@ -293,6 +303,8 @@ export default function IEMRecommend() {
     console.log("CR : " + CR);
 
     if(CR > 0.1){
+      submitButton.classList.remove('hidden');
+      loadingButton.classList.add('hidden');
       return alert("Hasil input preferensi anda kurang konsisten, mohon masukkan ulang preferensi anda.");
     } else {
       console.log("Hasil input preferensi anda sudah konsisten, proses perhitungan dapat dilanjutkan ke dalam tahap TOPSIS.");
@@ -403,13 +415,15 @@ export default function IEMRecommend() {
 
 
       
-      if(priceRange >= 0){
+      if(priceRange !== 0){
         let filteredDataIEM = rekomendasiIEM.filter((iem) => iem.price <= priceRange);
         setDataRekomendasiIEM(filteredDataIEM);
       } else{
         setDataRekomendasiIEM(rekomendasiIEM);
       }
 
+      inputSection.classList.add('hidden');
+      result.classList.remove('hidden');
 
     }
 
@@ -522,7 +536,7 @@ export default function IEMRecommend() {
                 </div>
               </div>
 
-              <div className='w-full px-4' data-aos="fade-up">
+              <div id="inputSection" className='w-full px-4' data-aos="fade-up">
                 <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
                         {/* <form ref={preference} onSubmit={calculateIEM}> */}
@@ -551,7 +565,7 @@ export default function IEMRecommend() {
                               <p className='w-full lg:text-lg text-sm text-black dark:text-white lg:w-1/6 text-left'>Price Range :</p>
                               <div className="lg:w-4/6">
                                   <select type="dropdown" defaultValue={0} name="price" onChange={(e) => setPriceRange(e.target.value)} className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
-                                    <option> Any </option>
+                                    <option value={0}> Any </option>
                                     <option value={300000}> Under Rp300.000 </option>
                                     <option value={500000}> Under Rp500.000 </option>
                                     <option value={700000}> Under Rp700.000 </option>
@@ -560,10 +574,19 @@ export default function IEMRecommend() {
                               </div>
                               
                           </div>
-                          <div className="w-full py-6 flex">
-                            <button id="submit" onClick={calculate} className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                          <div id="submitButton" className="w-full py-4 flex">
+                            <button id="submit" onClick={calculate} className='text-base  font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
                               Find IEM
                             </button>
+                          </div>
+                          <div id="loadingButton" className="w-full py-4 flex hidden">
+                          <button id='load' className='flex justify-center text-base font-semibold text-white bg-sky-300 py-3 px-8 rounded-full transition duration-500' disabled>
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-30" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
+                          </button>
                           </div>
                         {/* </form> */}
                     </div>
@@ -571,7 +594,7 @@ export default function IEMRecommend() {
               </div>
 
               {/* Result Section */}
-              <div className='w-full px-4 mt-20' data-aos="fade-up">
+              <div id="result" className='w-full px-4 mt-20 hidden' data-aos="fade-up">
                 <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
                     <div className='w-full px-4'>
@@ -584,7 +607,7 @@ export default function IEMRecommend() {
                       </div>
                     </div>
 
-                    <div className=' overflow-auto rounded-lg shadow mb-12'>
+                    <div className=' overflow-auto rounded-lg shadow mb-8'>
                         <table className="w-full">
                           <thead className=" bg-gray-200 border-b-2 border-gray-200 dark:bg-slate-800 dark:text-white">
                             <tr>
@@ -616,6 +639,19 @@ export default function IEMRecommend() {
                           </tbody>
                         </table>
                       </div>
+
+                      <div className="w-full mb-7">
+                        <p className="text-base text-gray-400 mb-6">
+                          Kurang puas?
+                        </p>
+                        <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-white dark:text-slate-800 py-3 px-8 rounded-full mr-3 mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                          Coba Lagi...
+                        </a>
+                      </div>
+                      
+                      
+                      
+                      
                     </div>
                 </div>
               </div>
@@ -649,32 +685,7 @@ export default function IEMRecommend() {
                     </li>
                   </ul>
                 </div>
-                {/* <div className='w-full px-4 mb-12 md:w-1/3'>
-                  <h3 className='font-semibold text-xl text-white mb-5'>Projects</h3>
-                  <ul className='text-slate-300'>
-                    <li>
-                      <a href='https://waddup-eta.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>Waddup</a>
-                    </li>
-                    <li>
-                      <a href='https://bmi-and-bmr-calc.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>BMCalc</a>
-                    </li>
-                    <li>
-                      <a href='https://sleepdisorderexsys.000webhostapp.com/' className='inline-block text-base hover:text-sky-500 mb-3'>SleepDisorder</a>
-                    </li>
-                    <li>
-                      <a href='https://gameboii.000webhostapp.com/' className='inline-block text-base hover:text-sky-500 mb-3'>Gameboii</a>
-                    </li>
-                    <li>
-                      <a href='https://pti-uas-food-api.vercel.app/' className='inline-block text-base hover:text-sky-500 mb-3'>Foodies For Groupies</a>
-                    </li>
-                    <li>
-                      <a href='https://umn.itch.io/witchahead' className='inline-block text-base hover:text-sky-500 mb-3'>WitchAhead</a>
-                    </li>
-                    <li>
-                      <a href='https://umar-remix-expense.netlify.app/' className='inline-block text-base hover:text-sky-500 mb-3'>RemixExpenses</a>
-                    </li>
-                  </ul>
-                </div> */}
+                
               </div>
               <div className='w-full pt-10 border-t border-slate-600'>
                 <div className='flex items-center justify-center mb-5'>
