@@ -153,3 +153,8 @@ body {
     background: black;
   }
 } */
+
+/* input[type="range"]::-webkit-slider-runnable-track{
+  @apply bg-sky-500 rounded-lg;
+} */
+

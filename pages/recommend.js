@@ -117,21 +117,37 @@ export default function IEMRecommend() {
       bobotPrioritas[0][1]= 1;
       bobotPrioritas[1][0]= 1;
     } 
-    else if(priority1 == 25){
+    else if(priority1 == 37.5){
       bobotPrioritas[0][1]= 2;
       bobotPrioritas[1][0]= 1/2;
     }
-    else if(priority1 == 0){
+    else if(priority1 == 25){
       bobotPrioritas[0][1]= 3;
       bobotPrioritas[1][0]= 1/3;
     }
-    else if(priority1 == 75){
+    else if(priority1 == 12.5){
+      bobotPrioritas[0][1]= 4;
+      bobotPrioritas[1][0]= 1/4;
+    }
+    else if(priority1 == 0){
+      bobotPrioritas[0][1]= 5;
+      bobotPrioritas[1][0]= 1/5;
+    }
+    else if(priority1 == 62.5){
       bobotPrioritas[0][1]= 1/2;
       bobotPrioritas[1][0]= 2;
     }
-    else if(priority1 == 100){
+    else if(priority1 == 75){
       bobotPrioritas[0][1]= 1/3;
       bobotPrioritas[1][0]= 3;
+    }
+    else if(priority1 == 87.5){
+      bobotPrioritas[0][1]= 1/4;
+      bobotPrioritas[1][0]= 4;
+    }
+    else if(priority1 == 100){
+      bobotPrioritas[0][1]= 1/5;
+      bobotPrioritas[1][0]= 5;
     }
     
     // check priority2
@@ -139,43 +155,76 @@ export default function IEMRecommend() {
       bobotPrioritas[1][2]= 1;
         bobotPrioritas[2][1]= 1;
     } 
-    else if(priority2 == 25){
+    else if(priority2 == 37.5){
       bobotPrioritas[1][2]= 2;
         bobotPrioritas[2][1]= 1/2;
     }
-    else if(priority2 == 0){
+    else if(priority2 == 25){
       bobotPrioritas[1][2]= 3;
         bobotPrioritas[2][1]= 1/3;
     }
-    else if(priority2 == 75){
+    else if(priority2 == 12.5){
+      bobotPrioritas[1][2]= 4;
+        bobotPrioritas[2][1]= 1/4;
+    }
+    else if(priority2 == 0){
+      bobotPrioritas[1][2]= 5;
+        bobotPrioritas[2][1]= 1/5;
+    }
+    else if(priority2 == 62.5){
       bobotPrioritas[1][2]= 1/2;
         bobotPrioritas[2][1]= 2;
     }
-    else if(priority2 == 100){
+    else if(priority2 == 75){
       bobotPrioritas[1][2]= 1/3;
         bobotPrioritas[2][1]= 3;
     }
+    else if(priority2 == 87.5){
+      bobotPrioritas[1][2]= 1/4;
+        bobotPrioritas[2][1]= 4;
+    }
+    else if(priority2 == 100){
+      bobotPrioritas[1][2]= 1/5;
+        bobotPrioritas[2][1]= 5;
+    }
+    
     
     // check priority3
     if(priority3 == 50){
       bobotPrioritas[0][2]= 1;
       bobotPrioritas[2][0]= 1;
     } 
-    else if(priority3 == 25){
+    else if(priority3 == 37.5){
       bobotPrioritas[0][2]= 2;
       bobotPrioritas[2][0]= 1/2;
     }
-    else if(priority3 == 0){
+    else if(priority3 == 25){
       bobotPrioritas[0][2]= 3;
       bobotPrioritas[2][0]= 1/3;
     }
-    else if(priority3 == 75){
+    else if(priority3 == 12.5){
+      bobotPrioritas[0][2]= 4;
+      bobotPrioritas[2][0]= 1/4;
+    }
+    else if(priority3 == 0){
+      bobotPrioritas[0][2]= 5;
+      bobotPrioritas[2][0]= 1/5;
+    }
+    else if(priority3 == 62.5){
       bobotPrioritas[0][2]= 1/2;
       bobotPrioritas[2][0]= 2;
     }
-    else if(priority3 == 100){
+    else if(priority3 == 75){
       bobotPrioritas[0][2]= 1/3;
       bobotPrioritas[2][0]= 3;
+    }
+    else if(priority3 == 87.5){
+      bobotPrioritas[0][2]= 1/4;
+      bobotPrioritas[2][0]= 4;
+    }
+    else if(priority3 == 100){
+      bobotPrioritas[0][2]= 1/5;
+      bobotPrioritas[2][0]= 5;
     }
 
     console.log(bobotPrioritas);
@@ -244,7 +293,7 @@ export default function IEMRecommend() {
     console.log("CR : " + CR);
 
     if(CR > 0.1){
-      return alert("Hasil input preferensi anda tidak konsisten, mohon masukkan ulang preferensi anda.");
+      return alert("Hasil input preferensi anda kurang konsisten, mohon masukkan ulang preferensi anda.");
     } else {
       console.log("Hasil input preferensi anda sudah konsisten, proses perhitungan dapat dilanjutkan ke dalam tahap TOPSIS.");
       // -------------------------------------------
@@ -349,6 +398,8 @@ export default function IEMRecommend() {
 
       })
       console.log(rekomendasiIEM);
+
+      rekomendasiIEM.sort((a, b) => b.preferensi - a.preferensi);
 
 
       
@@ -478,21 +529,21 @@ export default function IEMRecommend() {
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
                               <div className=" w-4/6">
-                                  <input type="range" step={25} name="priority1" defaultValue={50} onChange={(e) => setPriority1(e.target.value)} className="w-full justify-center"/>
+                                  <input type="range" step={12.5} name="priority1" defaultValue={50} onChange={(e) => setPriority1(e.target.value)} className="w-full justify-center"/>
                               </div>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Mid</p>
                           </div>
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Mid</p>
                               <div className="w-4/6">
-                                  <input type="range" step={25} name="priority2" defaultValue={50} onChange={(e) => setPriority2(e.target.value)} className="w-full justify-center"/>
+                                  <input type="range" step={12.5} name="priority2" defaultValue={50} onChange={(e) => setPriority2(e.target.value)} className="w-full justify-center"/>
                               </div>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
                           </div>
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
                               <div className="w-4/6">
-                                  <input type="range" step={25} name="priority3" defaultValue={50} onChange={(e) => setPriority3(e.target.value)} className="w-full justify-center"/>
+                                  <input type="range" step={12.5} name="priority3" defaultValue={50} onChange={(e) => setPriority3(e.target.value)} className="w-full justify-center"/>
                               </div>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
                           </div>
