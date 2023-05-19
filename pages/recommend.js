@@ -596,22 +596,24 @@ export default function IEMRecommend() {
                       <div className='mx-auto text-center mb-16'>
                         {/* <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4> */}
                         <h2 className='font-bold text-black dark:text-white text-4xl mb-6 mt-8'>Here is Your IEM!</h2>
-                        <div className="your-iem-bg bg-sky-500 py-5 lg:py-10 mb-6 lg:w-1/3 mx-auto">
-                          {dataRekomendasiIEM.map((iem, i) => {
-                            while(i < 1){
-                              return(
-                                <div key={i}>
-                                  <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
-                                  <h2 className='font-bold text-black dark:text-white text-lg lg:text-2xl my-4 uppercase'>{iem.name}</h2>
-                                  <h2 className='font-semibold text-black dark:text-white text-md lg:text-lg my-4 uppercase'>
-                                    {
-                                      new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
-                                    }
-                                  </h2>
-                                </div>
-                              )
-                            }
-                          })}
+                        <div className="group">
+                          <div className="your-iem-bg group-hover:scale-110 bg-sky-500 py-5 lg:py-10 mb-6 lg:w-1/3 mx-auto transition ease-in-out duration-300">
+                            {dataRekomendasiIEM.map((iem, i) => {
+                              while(i < 1){
+                                return(
+                                  <a key={i} href={iem.linkBeli} target="_blank" className="">
+                                    <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
+                                    <h2 className='font-bold text-black dark:text-white text-lg lg:text-2xl my-4 uppercase'>{iem.name}</h2>
+                                    <h2 className='font-semibold text-black dark:text-white text-md lg:text-lg my-4 uppercase'>
+                                      {
+                                        new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
+                                      }
+                                    </h2>
+                                  </a>
+                                )
+                              }
+                            })}
+                          </div>
                         </div>
                         <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                         Ini adalah beberapa IEM yang sesuai dengan preferensi anda :
