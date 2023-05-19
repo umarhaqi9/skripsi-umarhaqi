@@ -348,7 +348,7 @@ export default function IEMRecommend() {
         mid = mid * eigenVector[1];
         treble = treble * eigenVector[2];
 
-        normalisasiBobotIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli]);
+        normalisasiBobotIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli, iem.gambar]);
 
       })
       
@@ -395,7 +395,7 @@ export default function IEMRecommend() {
         sNegatif += Math.sqrt(((iem[2]-yNegatifBass)*(iem[2]-yNegatifBass))+((iem[3]-yNegatifMid)*(iem[3]-yNegatifMid))+((iem[4]-yNegatifTreble)*(iem[4]-yNegatifTreble)));
 
         
-        solusiIdealIEM.push({name: iem[0], price:iem[1], sPositif: sPositif, sNegatif: sNegatif, linkBeli: iem[5]});
+        solusiIdealIEM.push({name: iem[0], price:iem[1], sPositif: sPositif, sNegatif: sNegatif, linkBeli: iem[5], gambar: iem[6]});
         
       })
       console.log(solusiIdealIEM);
@@ -406,7 +406,7 @@ export default function IEMRecommend() {
         let preferensi = 0;
         preferensi += iem.sNegatif/(iem.sPositif + iem.sNegatif);
 
-        rekomendasiIEM.push({name: iem.name, price: iem.price, preferensi: preferensi, linkBeli: iem.linkBeli});
+        rekomendasiIEM.push({name: iem.name, price: iem.price, preferensi: preferensi, linkBeli: iem.linkBeli, gambar: iem.gambar});
 
       })
       console.log(rekomendasiIEM);
@@ -428,12 +428,6 @@ export default function IEMRecommend() {
     }
 
   }
-
-  // const calculateIEM = (e) => {
-  //   // e.preventDefault();
-  //   console.log(preference.current);
-  // }
-
 
   
     return (
@@ -536,6 +530,7 @@ export default function IEMRecommend() {
                 </div>
               </div>
 
+              {/* Input Section */}
               <div id="inputSection" className='w-full px-4' data-aos="fade-up">
                 <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
@@ -600,7 +595,24 @@ export default function IEMRecommend() {
                     <div className='w-full px-4'>
                       <div className='mx-auto text-center mb-16'>
                         {/* <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4> */}
-                        <h2 className='font-bold text-black dark:text-white text-4xl mb-4 mt-8'>Here is Your IEM!</h2>
+                        <h2 className='font-bold text-black dark:text-white text-4xl mb-6 mt-8'>Here is Your IEM!</h2>
+                        <div className="your-iem-bg bg-sky-500 py-5 lg:py-10 mb-6 lg:w-1/3 mx-auto">
+                          {dataRekomendasiIEM.map((iem, i) => {
+                            while(i < 1){
+                              return(
+                                <div key={i}>
+                                  <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
+                                  <h2 className='font-bold text-black dark:text-white text-lg lg:text-2xl my-4 uppercase'>{iem.name}</h2>
+                                  <h2 className='font-semibold text-black dark:text-white text-md lg:text-lg my-4 uppercase'>
+                                    {
+                                      new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
+                                    }
+                                  </h2>
+                                </div>
+                              )
+                            }
+                          })}
+                        </div>
                         <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                         Ini adalah beberapa IEM yang sesuai dengan preferensi anda :
                         </p>
@@ -644,7 +656,7 @@ export default function IEMRecommend() {
                         <p className="text-base text-gray-400 mb-6">
                           Kurang puas?
                         </p>
-                        <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-white dark:text-slate-800 py-3 px-8 rounded-full mr-3 mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                        <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mr-3 mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                           Coba Lagi...
                         </a>
                       </div>

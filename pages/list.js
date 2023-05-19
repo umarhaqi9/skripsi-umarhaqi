@@ -242,7 +242,7 @@ export default function IEMList() {
                 
                 
                 <Link href='/recommend'>
-                  <a className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  <a className='text-base font-semibold text-white bg-slate-900 py-3 px-8 rounded-full mr-3 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                     Start Now!
                   </a>
                 </Link>

@@ -315,7 +315,7 @@ export default function Home() {
                     dan Technique for Order Preference by Similarity to an Ideal Solution (TOPSIS) untuk mengkalkulasi
                     rekomendasi produk yang tepat sesuai preferensi yang diinput oleh pengguna.
                   </p>
-                  <a href='/about' className='text-base font-semibold text-white dark:text-slate-800 bg-slate-800 dark:bg-white py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  <a href='/about' className='text-base font-semibold text-white dark:text-slate-800 bg-slate-800 dark:bg-slate-100 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                     More About Us →
                   </a>
                 </div>
@@ -379,9 +379,12 @@ export default function Home() {
                 {IEM.map((iem, i) => {
                   while(i < 15){
                     return(
-                      <div key={i} className='w-full py-6 flex justify-between bg-slate-50 dark:bg-slate-200 shadow-md rounded-lg mb-8'>
-                        <p className=' text-lg text-black ml-5 text-left'>{iem.name}</p>
-                        <p className=' text-lg text-black mr-5 order-last text-right'>
+                      <div key={i} className='w-full py-6 flex justify-between text-black bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg mb-8'>
+                        <p className=' text-lg ml-5 text-left'>
+                          <img className=' max-h-12 mb-2' src={iem.gambar}/>
+                          {iem.name}
+                        </p>
+                        <p className=' text-lg mr-5 my-auto order-last text-right'>
                           {
                             new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
                           }
@@ -394,7 +397,7 @@ export default function Home() {
                 
                 
                 <Link href='/list'>
-                  <a className='text-base font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                  <a className='text-base font-semibold text-white bg-slate-800 py-3 dark:bg-slate-100 dark:text-slate-800 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                     See All
                   </a>
                 </Link>
