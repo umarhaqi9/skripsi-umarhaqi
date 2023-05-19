@@ -380,11 +380,11 @@ export default function Home() {
                   while(i < 15){
                     return(
                       <div key={i} className='w-full py-6 flex justify-between text-black bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg mb-8'>
-                        <p className=' text-lg ml-5 text-left'>
+                        <p className=' text-sm lg:text-lg ml-5 text-left'>
                           <img className=' max-h-12 mb-2' src={iem.gambar}/>
                           {iem.name}
                         </p>
-                        <p className=' text-lg mr-5 my-auto order-last text-right'>
+                        <p className=' text-sm lg:text-lg mr-5 my-auto order-last text-right'>
                           {
                             new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
                           }
