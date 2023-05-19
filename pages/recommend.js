@@ -596,8 +596,8 @@ export default function IEMRecommend() {
                       <div className='mx-auto text-center mb-16'>
                         {/* <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4> */}
                         <h2 className='font-bold text-black dark:text-white text-4xl mb-6 mt-8'>Here is Your IEM!</h2>
-                        <div className="group">
-                          <div className="your-iem-bg group-hover:scale-110 bg-sky-500 py-5 lg:py-10 mb-6 lg:w-1/3 mx-auto transition ease-in-out duration-300">
+                        {/* <div className="group"> */}
+                          <div className="your-iem-bg hover:scale-110 bg-sky-500 py-5 lg:py-10 mb-6 lg:w-1/3 mx-auto transition ease-in-out duration-300">
                             {dataRekomendasiIEM.map((iem, i) => {
                               while(i < 1){
                                 return(
@@ -614,7 +614,7 @@ export default function IEMRecommend() {
                               }
                             })}
                           </div>
-                        </div>
+                        {/* </div> */}
                         <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                         Ini adalah beberapa IEM yang sesuai dengan preferensi anda :
                         </p>
