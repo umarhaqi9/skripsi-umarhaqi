@@ -638,13 +638,8 @@ export default function IEMRecommend() {
                           </thead>
                           <tbody className=" divide-y divide-gray-100">
                             {dataRekomendasiIEM.map((iem, i) => {
-                              
-                              const container = document.getElementById(`${i}`);
-                              const handleOnOpen = () => {
-                                container.classList.remove('hidden');
-
-                              }
                               const handleOnClose = (e) => {
+                                const container = document.getElementById(`${i}`);
                                 if(e.target.id === `${i}`) {
                                   container.classList.add('hidden');
                                 }
@@ -654,7 +649,7 @@ export default function IEMRecommend() {
                                   <tr className=" dark:bg-slate-900" key={i}>
                                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
                                       <p>{iem.name}
-                                      <button className="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-800 text-xs hover:bg-sky-500 hover:text-white ml-2 px-2 rounded-md" onClick={() => container.classList.remove('hidden')}>Details</button>
+                                      <button className="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-800 text-xs hover:bg-sky-500 hover:text-white ml-2 px-2 rounded-md" onClick={() => {const container = document.getElementById(`${i}`);container.classList.remove('hidden');}}>Details</button>
                                       </p>
                                     </td>
                                     {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">{Math.floor((iem.preferensi * 100)).toFixed(1)}%</td> */}
