@@ -89,6 +89,8 @@ export default function IEMRecommend() {
     AOS.init({
       duration: 800
     });
+
+    
     
   })
 
@@ -204,35 +206,35 @@ export default function IEMRecommend() {
       bobotPrioritas[0][2]= 1;
       bobotPrioritas[2][0]= 1;
     } 
-    else if(priority3 == 37.5){
+    else if(priority3 == 62.5){
       bobotPrioritas[0][2]= 2;
       bobotPrioritas[2][0]= 1/2;
     }
-    else if(priority3 == 25){
+    else if(priority3 == 75){
       bobotPrioritas[0][2]= 3;
       bobotPrioritas[2][0]= 1/3;
     }
-    else if(priority3 == 12.5){
+    else if(priority3 == 87.5){
       bobotPrioritas[0][2]= 4;
       bobotPrioritas[2][0]= 1/4;
     }
-    else if(priority3 == 0){
+    else if(priority3 == 100){
       bobotPrioritas[0][2]= 5;
       bobotPrioritas[2][0]= 1/5;
     }
-    else if(priority3 == 62.5){
+    else if(priority3 == 37.5){
       bobotPrioritas[0][2]= 1/2;
       bobotPrioritas[2][0]= 2;
     }
-    else if(priority3 == 75){
+    else if(priority3 == 25){
       bobotPrioritas[0][2]= 1/3;
       bobotPrioritas[2][0]= 3;
     }
-    else if(priority3 == 87.5){
+    else if(priority3 == 12.5){
       bobotPrioritas[0][2]= 1/4;
       bobotPrioritas[2][0]= 4;
     }
-    else if(priority3 == 100){
+    else if(priority3 == 0){
       bobotPrioritas[0][2]= 1/5;
       bobotPrioritas[2][0]= 5;
     }
@@ -283,7 +285,10 @@ export default function IEMRecommend() {
     const eigenValue = [1,1,1];
 
     for(let i=0; i < 3; i++){
+      // Cara 1
       eigenValue[i] = sum[i] * eigenVector[i];
+      // Cara 2
+      // eigenValue[i] = sumVector[i] * eigenVector[i];
     }
 
     console.log("Eigen Value : " + eigenValue);
@@ -342,13 +347,13 @@ export default function IEMRecommend() {
         mid += iem.mid/sumMid;
         treble += iem.treble/sumTreble;
 
-        normalisasiIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli]);
+        normalisasiIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli, iem.bass, iem.mid, iem.treble ]);
 
         bass = bass * eigenVector[0];
         mid = mid * eigenVector[1];
         treble = treble * eigenVector[2];
 
-        normalisasiBobotIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli, iem.gambar]);
+        normalisasiBobotIEM.push([iem.name, iem.price, bass, mid, treble, iem.linkBeli, iem.gambar, iem.bass, iem.mid, iem.treble, iem.jumlahDriver, iem.tipeDriver ]);
 
       })
       
@@ -395,7 +400,7 @@ export default function IEMRecommend() {
         sNegatif += Math.sqrt(((iem[2]-yNegatifBass)*(iem[2]-yNegatifBass))+((iem[3]-yNegatifMid)*(iem[3]-yNegatifMid))+((iem[4]-yNegatifTreble)*(iem[4]-yNegatifTreble)));
 
         
-        solusiIdealIEM.push({name: iem[0], price:iem[1], sPositif: sPositif, sNegatif: sNegatif, linkBeli: iem[5], gambar: iem[6]});
+        solusiIdealIEM.push({name: iem[0], price:iem[1], sPositif: sPositif, sNegatif: sNegatif, linkBeli: iem[5], gambar: iem[6], bass: iem[7], mid:iem[8], treble:iem[9], jumlahDriver: iem[10], tipeDriver: iem[11] });
         
       })
       console.log(solusiIdealIEM);
@@ -406,7 +411,7 @@ export default function IEMRecommend() {
         let preferensi = 0;
         preferensi += iem.sNegatif/(iem.sPositif + iem.sNegatif);
 
-        rekomendasiIEM.push({name: iem.name, price: iem.price, preferensi: preferensi, linkBeli: iem.linkBeli, gambar: iem.gambar});
+        rekomendasiIEM.push({name: iem.name, price: iem.price, preferensi: preferensi, linkBeli: iem.linkBeli, gambar: iem.gambar, bass: iem.bass, mid:iem.mid, treble: iem.treble, jumlahDriver: iem.jumlahDriver, tipeDriver: iem.tipeDriver});
 
       })
       console.log(rekomendasiIEM);
@@ -522,8 +527,8 @@ export default function IEMRecommend() {
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
-                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4>
-                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>Find Your IEM Now!</h2>
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Rekomendasi</h4>
+                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4'>Temukan IEM Anda!</h2>
                   <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
                   Masukkan preferensi anda :
                   </p>
@@ -550,11 +555,11 @@ export default function IEMRecommend() {
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
                           </div>
                           <div className='w-full py-6 flex mb-8'>
-                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Treble</p>
                               <div className="w-4/6">
                                   <input type="range" step={12.5} name="priority3" defaultValue={50} onChange={(e) => setPriority3(e.target.value)} className="w-full justify-center"/>
                               </div>
-                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Treble</p>
+                              <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 order-last text-right'>Bass</p>
                           </div>
                           <div className='w-full py-6 flex mb-2'>
                               <p className='w-full lg:text-lg text-sm text-black dark:text-white lg:w-1/6 text-left'>Price Range :</p>
@@ -595,7 +600,7 @@ export default function IEMRecommend() {
                     <div className='w-full px-4'>
                       <div className='mx-auto text-center mb-16'>
                         {/* <h4 className='font-semibold text-lg text-sky-500 mb-2'>Recommendation</h4> */}
-                        <h2 className='font-bold text-black dark:text-white text-4xl mb-6 mt-8'>Here is Your IEM!</h2>
+                        <h2 className='font-bold text-black dark:text-white text-4xl mb-6 mt-8'>Ini IEM untuk anda!</h2>
                         {/* <div className="group"> */}
                           <div className="your-iem-bg hover:scale-110 bg-sky-500 py-5 lg:py-10 mb-6 lg:w-1/3 mx-auto transition ease-in-out duration-300">
                             {dataRekomendasiIEM.map((iem, i) => {
@@ -633,21 +638,69 @@ export default function IEMRecommend() {
                           </thead>
                           <tbody className=" divide-y divide-gray-100">
                             {dataRekomendasiIEM.map((iem, i) => {
+                              
+                              const container = document.getElementById(`${i}`);
+                              const handleOnOpen = () => {
+                                container.classList.remove('hidden');
+
+                              }
+                              const handleOnClose = (e) => {
+                                if(e.target.id === `${i}`) {
+                                  container.classList.add('hidden');
+                                }
+                              }
                               return(
-                                <tr className=" dark:bg-slate-900" key={i}>
-                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.name}</td>
-                                  {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">{Math.floor((iem.preferensi * 100)).toFixed(1)}%</td> */}
-                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">
-                                    {
-                                      new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
-                                    }
-                                  </td>
-                                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
-                                    <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
-                                      Click Here
-                                    </a>
-                                  </td>
-                                </tr>
+                                <>
+                                  <tr className=" dark:bg-slate-900" key={i}>
+                                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
+                                      <p>{iem.name}
+                                      <button className="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-800 text-xs hover:bg-sky-500 hover:text-white ml-2 px-2 rounded-md" onClick={() => container.classList.remove('hidden')}>Details</button>
+                                      </p>
+                                    </td>
+                                    {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">{Math.floor((iem.preferensi * 100)).toFixed(1)}%</td> */}
+                                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">
+                                      {
+                                        new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
+                                      }
+                                    </td>
+                                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                                      <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
+                                        Click Here
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <div 
+                                    id={i}
+                                    onClick={handleOnClose}
+                                    className="fixed hidden inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
+                                    
+                                    {/* Modal start */}
+                                    <div className="bg-sky-500 py-6 dark:bg-slate-800 p-2 rounded w-96">
+                                        {/* Modal header */}
+                                        <div className="font-semibold text-center text-lg text-white p-6 mb-4 -mt-2 -mx-2">
+                                          <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
+                                          <h1>
+                                          {iem.name}
+                                          </h1>
+                                          <p>
+                                            {
+                                              new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
+                                            }  
+                                          </p>
+                                        </div>
+                                        <div className="container">
+                                          <p className="text-base text-white dark:text-gray-400">Harga : { new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)}</p>
+                                          <p className="text-base text-white dark:text-gray-400">Bass : {"⭐".repeat(iem.bass)}</p>
+                                          <p className="text-base text-white dark:text-gray-400">Mid : {"⭐".repeat(iem.mid)}</p>
+                                          <p className="text-base text-white dark:text-gray-400">Treble : {"⭐".repeat(iem.treble)}</p>
+                                          <p className="text-base text-white dark:text-gray-400">Jumlah Driver : {iem.jumlahDriver}</p>
+                                          <p className="text-base text-white dark:text-gray-400">Tipe Driver : {iem.tipeDriver}</p>
+                                          <p className="text-base text-white dark:text-gray-400">Tipe Driver : <a href={iem.linkBeli} className="font-semibold underline hover:text-slate-800 dark:hover:text-sky-500" target="_blank">Klik disini</a></p>
+                                        </div>
+                                    </div>
+                                    {/* Modal end */}
+                                  </div>
+                                </>
                               )
                             })}
                           </tbody>
@@ -655,22 +708,7 @@ export default function IEMRecommend() {
                       </div>
 
                       <div className="w-full mb-6">
-                        {/* <div className="w-1/2 mb-7"> */}
-                          {/* <p className="text-base text-gray-400 mb-6">
-                            Kurang puas?
-                          </p>
-                          <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                            Coba Lagi...
-                          </a> */}
-                        {/* </div> */}
-                        {/* <div className="w-1/2 mb-7"> */}
-                          {/* <p className="text-base text-right text-gray-400 mb-6">
-                            Jika berkenan, mohon bantuannya mengisi survey berikut :
-                          </p>
-                          <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                            Survey
-                          </a> */}
-                        {/* </div> */}
+                        
                         <div className='w-full py-6 flex flex-wrap justify-between mb-8'>
                           <p className=' text-left'>
                             <p className="text-base text-gray-400 mb-6">

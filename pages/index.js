@@ -229,7 +229,7 @@ export default function Home() {
             <div className='container' >
               <div className='flex flex-wrap'>
                 <div id='herowelcome' className='w-full self-center px-4 lg:w-1/2 z-10' data-aos="fade-right" data-aos-delay="3000">
-                  <h1 className='text-base font-semibold text-sky-500 md:text-xl mb-5'><span className='block font-bold text-slate-900 text-4xl mt-1'>Find The Right IEM For You!</span></h1>
+                  <h1 className='text-base font-semibold text-sky-500 md:text-xl mb-5'><span className='block font-bold text-slate-900 text-4xl mt-1'>Temukan IEM Yang Tepat Untuk Anda!</span></h1>
                   {/* <h2 className='font-medium text-slate-500 text-lg mt-2 mb-5 lg:text-2xl'>Student & 
                   <span className='text-slate-900 dark:text-white'> Front-End Developer</span></h2> */}
                   <p className='font-base text-white mb-10 leading-relaxed'>
@@ -259,8 +259,8 @@ export default function Home() {
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='max-w-xl mx-auto text-center mb-16'>
-                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Find IEM</h4>
-                  <h2 className='font-bold text-black text-3xl mb-4 dark:text-white'>How To Use</h2>
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>Cari IEM</h4>
+                  <h2 className='font-bold text-black text-3xl mb-4 dark:text-white'>Cara Menggunakan</h2>
                   <p className='font-medium text-slate-500 md:text-lg'>
                     Ada 3 tahapan dalam sistem rekomendasi ini:
                   </p>
@@ -270,13 +270,13 @@ export default function Home() {
               <div className='w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto'>
                 <div className='mb-12 p-4 md:w-1/3 text-center' data-aos="fade-up" >
                   <h3 className='font-semibold text-8xl text-black mt-5 mb-3 dark:text-white'>1</h3>
-                  <p className='font-small text-3xl text-black dark:text-white mb-3'>Click</p>
+                  <p className='font-small text-3xl text-black dark:text-white mb-3'>Klik</p>
                   <p className='font-small text-sm text-slate-500 mb-5'>Klik tombol “Start Now!” untuk memulai proses rekomendasi IEM untuk anda.</p>
                 </div>
 
                 <div className='mb-12 p-4 md:w-1/3 text-center' data-aos="fade-up" >
                   <h3 className='font-semibold text-8xl text-black mt-5 mb-3 dark:text-white'>2</h3>
-                  <p className='font-small text-3xl text-black dark:text-white mb-3'>Fill</p>
+                  <p className='font-small text-3xl text-black dark:text-white mb-3'>Isi</p>
                   <p className='font-small text-sm text-slate-500 mb-5'>
                   Isi bobot segmen suara sesuai preferensi yang anda miliki. Bobot tersebut akan dihitung untuk mencari IEM yang tepat untuk anda.
                   </p>
@@ -284,7 +284,7 @@ export default function Home() {
 
                 <div className='mb-12 p-4 md:w-1/3 text-center' data-aos="fade-up" >
                   <h3 className='font-semibold text-8xl text-black mt-5 mb-3 dark:text-white'>3</h3>
-                  <p className='font-small text-3xl text-black dark:text-white mb-3'>Done</p>
+                  <p className='font-small text-3xl text-black dark:text-white mb-3'>Selesai</p>
                   <p className='font-small text-sm text-slate-500 mb-5'>Ditampilkannya IEM yang sesuai dengan kriteria preferensi anda.</p>
                 </div>
               </div>
