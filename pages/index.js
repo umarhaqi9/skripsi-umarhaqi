@@ -291,9 +291,11 @@ export default function Home() {
               
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='max-w-xl mx-auto text-center mb-16'>
-                  <a href='/recommend' className='text-lg font-semibold text-black dark:text-white hover:text-white bg-transparent hover:bg-slate-800 dark:hover:bg-sky-500 py-3 px-8 border border-black dark:border-white dark:hover:border-sky-500 rounded-full hover:shadow-lg transition duration-300 ease-in-out'>
-                    Start Now!
-                  </a>
+                  <Link href='/recommend'>
+                    <a  className='text-lg font-semibold text-black dark:text-white hover:text-white bg-transparent hover:bg-slate-800 dark:hover:bg-sky-500 py-3 px-8 border border-black dark:border-white dark:hover:border-sky-500 rounded-full hover:shadow-lg transition duration-300 ease-in-out'>
+                      Start Now!
+                    </a>
+                  </Link>
                 </div>
               </div>
 
@@ -394,7 +396,6 @@ export default function Home() {
                   }
                   
                 })}
-                
                 
                 <Link href='/list'>
                   <a className='text-base font-semibold text-white bg-slate-800 py-3 dark:bg-slate-100 dark:text-slate-800 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>

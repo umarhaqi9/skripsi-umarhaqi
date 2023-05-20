@@ -603,8 +603,8 @@ export default function IEMRecommend() {
                                 return(
                                   <a key={i} href={iem.linkBeli} target="_blank" className="">
                                     <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
-                                    <h2 className='font-bold text-black dark:text-white text-lg lg:text-2xl my-4 uppercase'>{iem.name}</h2>
-                                    <h2 className='font-semibold text-black dark:text-white text-md lg:text-lg my-4 uppercase'>
+                                    <h2 className='font-bold text-white text-lg lg:text-2xl my-4 uppercase'>{iem.name}</h2>
+                                    <h2 className='font-semibold text-white text-md lg:text-lg my-4 uppercase'>
                                       {
                                         new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 2 }).format(iem.preferensi)
                                       }
@@ -654,13 +654,41 @@ export default function IEMRecommend() {
                         </table>
                       </div>
 
-                      <div className="w-full mb-7">
-                        <p className="text-base text-gray-400 mb-6">
-                          Kurang puas?
-                        </p>
-                        <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mr-3 mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                          Coba Lagi...
-                        </a>
+                      <div className="w-full mb-6">
+                        {/* <div className="w-1/2 mb-7"> */}
+                          {/* <p className="text-base text-gray-400 mb-6">
+                            Kurang puas?
+                          </p>
+                          <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            Coba Lagi...
+                          </a> */}
+                        {/* </div> */}
+                        {/* <div className="w-1/2 mb-7"> */}
+                          {/* <p className="text-base text-right text-gray-400 mb-6">
+                            Jika berkenan, mohon bantuannya mengisi survey berikut :
+                          </p>
+                          <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            Survey
+                          </a> */}
+                        {/* </div> */}
+                        <div className='w-full py-6 flex flex-wrap justify-between mb-8'>
+                          <p className=' text-left'>
+                            <p className="text-base text-gray-400 mb-6">
+                              Kurang puas?
+                            </p>
+                            <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                              Coba Lagi...
+                            </a>
+                          </p>
+                          <p className=' my-auto order-last mt-10 lg:mt-0 lg:text-right'>
+                            <p className="text-base text-gray-400 mb-6">
+                              Jika berkenan, mohon bantuannya mengisi survey berikut :
+                            </p>
+                            <a href='https://forms.gle/DVJy2HEBHtF8NSxh6' target="_blank" className='text-base font-semibold text-slate-800 bg-white dark:bg-slate-100 border dark:hover:text-white border-slate-800 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:border-sky-500 dark:hover:border-sky-500 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-white transition duration-300 ease-in-out'>
+                              Survey
+                            </a>
+                          </p>
+                        </div>
                       </div>
                       
                       
