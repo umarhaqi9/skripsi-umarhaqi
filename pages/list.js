@@ -182,11 +182,11 @@ export default function IEMList() {
             <div className='container'>
               <div className='w-full px-4' data-aos="fade-up">
                 <div className='mx-auto text-center mb-16'>
-                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>IEMs</h4>
-                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>List of Products</h2>
-                  {/* <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
-                  Berikut adalah beberapa IEM yang tersedia pada sistem ini:
-                  </p> */}
+                  <h4 className='font-semibold text-lg text-sky-500 mb-2'>List of IEMs</h4>
+                  <h2 className='font-bold text-black dark:text-white text-4xl mb-4  '>Daftar Produk</h2>
+                  <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
+                  Berikut adalah daftar IEM yang tersedia pada sistem ini:
+                  </p>
                 </div>
               </div>
 
@@ -208,10 +208,21 @@ export default function IEMList() {
                     </thead>
                     <tbody className=" divide-y divide-gray-100">
                       {IEM.map((iem, i) => {
+                        const handleOnClose = (e) => {
+                          const container = document.getElementById(`${i}`);
+                          if(e.target.id === `${i}`) {
+                            container.classList.add('hidden');
+                          }
+                        }
                         return(
+                          <>
                           <tr className=" dark:bg-slate-900" key={i}>
                             {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{iem.id}</td> */}
-                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.name}</td>
+                            <td className="p-3 text-sm flex text-gray-700 whitespace-nowrap dark:text-white">
+                              <img className="h-5 mr-2" src={iem.gambar}/>
+                              <p>{iem.name}</p>
+                              <button className="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-800 text-xs hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-white dark:hover:text-white ml-2 px-2 rounded-md" onClick={() => {const container = document.getElementById(`${i}`);container.classList.remove('hidden');}}>Details</button>  
+                            </td>
                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
                               {
                                 new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)
@@ -224,10 +235,37 @@ export default function IEMList() {
                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">{iem.tipeDriver}</td>
                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
                               <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
-                                Click Here
+                                Klik disini
                               </a>
                             </td>
                           </tr>
+                          <div 
+                            id={i}
+                            onClick={handleOnClose}
+                            className="fixed hidden inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
+                            
+                            {/* Modal start */}
+                            <div className="bg-sky-500 py-6 dark:bg-slate-800 p-2 rounded w-96">
+                                {/* Modal header */}
+                                <div className="font-semibold text-center text-lg text-white p-6 mb-4 -mt-2 -mx-2">
+                                  <img className="mx-auto h-28 lg:h-44" src={iem.gambar}/>
+                                  <h1>
+                                  {iem.name}
+                                  </h1>
+                                </div>
+                                <div className="container">
+                                  <p className="text-base text-white dark:text-gray-400">Harga : { new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(iem.price)}</p>
+                                  <p className="text-base text-white dark:text-gray-400">Bass : {"⭐".repeat(iem.bass)}</p>
+                                  <p className="text-base text-white dark:text-gray-400">Mid : {"⭐".repeat(iem.mid)}</p>
+                                  <p className="text-base text-white dark:text-gray-400">Treble : {"⭐".repeat(iem.treble)}</p>
+                                  <p className="text-base text-white dark:text-gray-400">Jumlah Driver : {iem.jumlahDriver}</p>
+                                  <p className="text-base text-white dark:text-gray-400">Tipe Driver : {iem.tipeDriver}</p>
+                                  <p className="text-base text-white dark:text-gray-400">Tipe Driver : <a href={iem.linkBeli} className="font-semibold underline hover:text-slate-800 dark:hover:text-sky-500" target="_blank">Klik disini</a></p>
+                                </div>
+                            </div>
+                            {/* Modal end */}
+                          </div>
+                        </>
                         )
                       })}
                     </tbody>

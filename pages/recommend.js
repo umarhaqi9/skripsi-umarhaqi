@@ -588,9 +588,14 @@ export default function IEMRecommend() {
                               
                           </div>
                           <div id="submitButton" className="w-full py-4 flex">
-                            <button id="submit" onClick={calculate} className='text-base  font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            <button id="submit" onClick={calculate} className='text-base mr-3 font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
                               Cari IEM
                             </button>
+                            <Link href='/'>
+                              <a className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                                Back to Home
+                              </a>
+                            </Link>
                           </div>
                           <div id="loadingButton" className="w-full py-4 flex hidden">
                           <button id='load' className='flex justify-center text-base font-semibold text-white bg-sky-300 py-3 px-8 rounded-full transition duration-500' disabled>
@@ -686,7 +691,7 @@ export default function IEMRecommend() {
                                     <div className="bg-sky-500 py-6 dark:bg-slate-800 p-2 rounded w-96">
                                         {/* Modal header */}
                                         <div className="font-semibold text-center text-lg text-white p-6 mb-4 -mt-2 -mx-2">
-                                          <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
+                                          <img className="mx-auto h-28 lg:h-44" src={iem.gambar}/>
                                           <h1>
                                           {iem.name}
                                           </h1>
@@ -722,9 +727,14 @@ export default function IEMRecommend() {
                             <p className="text-base text-gray-400 mb-6">
                               Kurang puas?
                             </p>
-                            <a href='/recommend' className='text-base font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            <a href='/recommend' className='text-base mr-3 font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                               Coba Lagi...
                             </a>
+                            <Link href='/'>
+                              <a className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                                Back to Home
+                              </a>
+                            </Link>
                           </p>
                           <p className=' my-auto order-last mt-10 lg:mt-0 lg:text-right'>
                             <p className="text-base text-gray-400 mb-6">
