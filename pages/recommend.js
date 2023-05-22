@@ -540,6 +540,19 @@ export default function IEMRecommend() {
                 <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
                     <div className="container">
                         {/* <form ref={preference} onSubmit={calculateIEM}> */}
+                          <div className='w-full py-4 flex'>
+                              <div className=" w-4/6 mx-auto flex space-x-3 lg:space-x-20">
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>5</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>4</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>3</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>2</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>Equal</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>2</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>3</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>4</p>
+                                <p className=' lg:text-lg text-sm text-black dark:text-white'>5</p>
+                              </div>
+                          </div>
                           <div className='w-full py-6 flex mb-8'>
                               <p className=' lg:text-lg text-sm text-black dark:text-white w-1/6 text-left'>Bass</p>
                               <div className=" w-4/6">
@@ -566,17 +579,17 @@ export default function IEMRecommend() {
                               <div className="lg:w-4/6">
                                   <select type="dropdown" defaultValue={0} name="price" onChange={(e) => setPriceRange(e.target.value)} className="border lg:text-lg text-sm border-sky-500 text-black rounded-lg px-4 py-2">
                                     <option value={0}> Any </option>
-                                    <option value={300000}> Under Rp300.000 </option>
-                                    <option value={500000}> Under Rp500.000 </option>
-                                    <option value={700000}> Under Rp700.000 </option>
-                                    <option value={900000}> Under Rp900.000 </option>
+                                    <option value={300000}> {"<"} Rp300.000 </option>
+                                    <option value={500000}> {"<"} Rp500.000 </option>
+                                    <option value={700000}> {"<"} Rp700.000 </option>
+                                    <option value={900000}> {"<"} Rp900.000 </option>
                                   </select>
                               </div>
                               
                           </div>
                           <div id="submitButton" className="w-full py-4 flex">
                             <button id="submit" onClick={calculate} className='text-base  font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
-                              Find IEM
+                              Cari IEM
                             </button>
                           </div>
                           <div id="loadingButton" className="w-full py-4 flex hidden">
@@ -647,10 +660,10 @@ export default function IEMRecommend() {
                               return(
                                 <>
                                   <tr className=" dark:bg-slate-900" key={i}>
-                                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white">
-                                      <p>{iem.name}
+                                    <td className="p-3 text-sm flex text-gray-700 whitespace-nowrap dark:text-white">
+                                      <img className="h-5 mr-2" src={iem.gambar}/>
+                                      <p>{iem.name}</p>
                                       <button className="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-800 text-xs hover:bg-sky-500 hover:text-white ml-2 px-2 rounded-md" onClick={() => {const container = document.getElementById(`${i}`);container.classList.remove('hidden');}}>Details</button>
-                                      </p>
                                     </td>
                                     {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">{Math.floor((iem.preferensi * 100)).toFixed(1)}%</td> */}
                                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap dark:text-white text-center">
