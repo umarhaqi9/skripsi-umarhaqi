@@ -541,7 +541,7 @@ export default function IEMRecommend() {
                     <div className="container">
                         {/* <form ref={preference} onSubmit={calculateIEM}> */}
                           <div className='w-full py-4 flex'>
-                              <div className=" w-4/6 mx-auto flex space-x-3 lg:space-x-20">
+                              <div className=" w-4/6 mx-auto flex justify-center space-x-3 lg:space-x-20">
                                 <p className=' lg:text-lg text-sm text-black dark:text-white'>5</p>
                                 <p className=' lg:text-lg text-sm text-black dark:text-white'>4</p>
                                 <p className=' lg:text-lg text-sm text-black dark:text-white'>3</p>
