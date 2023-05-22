@@ -286,9 +286,9 @@ export default function IEMRecommend() {
 
     for(let i=0; i < 3; i++){
       // Cara 1
-      eigenValue[i] = sum[i] * eigenVector[i];
+      // eigenValue[i] = sum[i] * eigenVector[i];
       // Cara 2
-      // eigenValue[i] = sumVector[i] * eigenVector[i];
+      eigenValue[i] = sumVector[i] * eigenVector[i];
     }
 
     console.log("Eigen Value : " + eigenValue);
