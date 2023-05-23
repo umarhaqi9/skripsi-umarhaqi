@@ -530,7 +530,7 @@ export default function IEMRecommend() {
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>Rekomendasi</h4>
                   <h2 className='font-bold text-black dark:text-white text-4xl mb-4'>Temukan IEM Anda!</h2>
                   <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
-                  Masukkan preferensi anda :
+                  Masukkan prioritas preferensi anda :
                   </p>
                 </div>
               </div>
@@ -588,11 +588,11 @@ export default function IEMRecommend() {
                               
                           </div>
                           <div id="submitButton" className="w-full py-4 flex">
-                            <button id="submit" onClick={calculate} className='text-base mr-3 font-semibold text-white bg-slate-800 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            <button id="submit" onClick={calculate} className='text-sm lg:text-base mr-3 font-semibold text-white bg-slate-800 py-3 px-4 lg:px-8 rounded-full hover:shadow-lg hover:opacity-80 dark:bg-sky-500 dark:hover:bg-white dark:hover:text-black dark:hover:opacity-100 transition duration-300 ease-in-out'>
                               Cari IEM
                             </button>
                             <Link href='/'>
-                              <a className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                              <a className=' text-sm lg:text-base font-semibold text-slate-800 bg-white py-3 px-4 lg:px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                                 Back to Home
                               </a>
                             </Link>
@@ -625,7 +625,7 @@ export default function IEMRecommend() {
                               while(i < 1){
                                 return(
                                   <a key={i} href={iem.linkBeli} target="_blank" className="">
-                                    <img className="mx-auto h-28 lg:w-44 lg:h-44" src={iem.gambar}/>
+                                    <img className="mx-auto h-28 lg:h-44" src={iem.gambar}/>
                                     <h2 className='font-bold text-white text-lg lg:text-2xl my-4 uppercase'>{iem.name}</h2>
                                     <h2 className='font-semibold text-white text-md lg:text-lg my-4 uppercase'>
                                       {
@@ -678,7 +678,7 @@ export default function IEMRecommend() {
                                     </td>
                                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
                                       <a href={iem.linkBeli} target="_blank" className="py-1 px-2 text-sky-500 bg-transparent border border-sky-500 hover:text-white hover:bg-sky-500 rounded-lg">
-                                        Click Here
+                                        Klik Disini
                                       </a>
                                     </td>
                                   </tr>
@@ -708,7 +708,7 @@ export default function IEMRecommend() {
                                           <p className="text-base text-white dark:text-gray-400">Treble : {"⭐".repeat(iem.treble)}</p>
                                           <p className="text-base text-white dark:text-gray-400">Jumlah Driver : {iem.jumlahDriver}</p>
                                           <p className="text-base text-white dark:text-gray-400">Tipe Driver : {iem.tipeDriver}</p>
-                                          <p className="text-base text-white dark:text-gray-400">Tipe Driver : <a href={iem.linkBeli} className="font-semibold underline hover:text-slate-800 dark:hover:text-sky-500" target="_blank">Klik disini</a></p>
+                                          <p className="text-base text-white dark:text-gray-400">Link Beli : <a href={iem.linkBeli} className="font-semibold underline hover:text-slate-800 dark:hover:text-sky-500" target="_blank">Klik disini</a></p>
                                         </div>
                                     </div>
                                     {/* Modal end */}
@@ -723,27 +723,27 @@ export default function IEMRecommend() {
                       <div className="w-full mb-6">
                         
                         <div className='w-full py-6 flex flex-wrap justify-between mb-8'>
-                          <p className=' text-left'>
+                          <div className=' text-left'>
                             <p className="text-base text-gray-400 mb-6">
                               Kurang puas?
                             </p>
-                            <a href='/recommend' className='text-base mr-3 font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                            <a href='/recommend' className='text-sm lg:text-base mr-3 font-semibold text-white bg-slate-800 dark:bg-slate-100 dark:text-slate-800 py-3 px-4 lg:px-8 rounded-full mb-8 hover:shadow-lg hover:opacity-80 dark:hover:bg-sky-500 dark:hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                               Coba Lagi...
                             </a>
                             <Link href='/'>
-                              <a className='text-base font-semibold text-slate-800 bg-white py-3 px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
+                              <a className='text-sm lg:text-base font-semibold text-slate-800 bg-white py-3 px-4 lg:px-8 rounded-full border border-slate-800 hover:shadow-lg hover:border-sky-500 hover:bg-sky-500 hover:text-white dark:hover:opacity-100 transition duration-300 ease-in-out'>
                                 Back to Home
                               </a>
                             </Link>
-                          </p>
-                          <p className=' my-auto order-last mt-10 lg:mt-0 lg:text-right'>
+                          </div>
+                          <div className=' my-auto order-last mt-10 lg:mt-0 lg:text-right'>
                             <p className="text-base text-gray-400 mb-6">
                               Jika berkenan, mohon bantuannya mengisi survey berikut :
                             </p>
-                            <a href='https://forms.gle/DVJy2HEBHtF8NSxh6' target="_blank" className='text-base font-semibold text-slate-800 bg-white dark:bg-slate-100 border dark:hover:text-white border-slate-800 dark:text-slate-800 py-3 px-8 rounded-full mb-8 hover:shadow-lg hover:border-sky-500 dark:hover:border-sky-500 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-white transition duration-300 ease-in-out'>
+                            <a href='https://forms.gle/DVJy2HEBHtF8NSxh6' target="_blank" className='text-sm lg:text-base font-semibold text-slate-800 bg-white dark:bg-slate-100 border dark:hover:text-white border-slate-800 dark:text-slate-800 py-3 px-4 lg:px-8 rounded-full mb-8 hover:shadow-lg hover:border-sky-500 dark:hover:border-sky-500 hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-white transition duration-300 ease-in-out'>
                               Survey
                             </a>
-                          </p>
+                          </div>
                         </div>
                       </div>
                       

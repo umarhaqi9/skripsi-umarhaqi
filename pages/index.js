@@ -335,6 +335,9 @@ export default function Home() {
                           <img src='https://cdn.discordapp.com/attachments/1077723466494640128/1105026586345996288/omglenn.jpg'
                             className=' w-44 h-40'
                           />
+                          <img src='https://yt3.googleusercontent.com/ytc/AGIKgqOi51s4jPn8DHgvAcrHdDg8hulBqiKxhk1N_pyG=s900-c-k-c0x00ffffff-no-rj'
+                            className=' w-44 h-40'
+                          />
                         </div>
                       </a>
                       

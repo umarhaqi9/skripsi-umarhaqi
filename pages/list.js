@@ -196,6 +196,7 @@ export default function IEMList() {
                     <thead className=" bg-gray-200 border-b-2 border-gray-200 dark:bg-slate-800 dark:text-white">
                       <tr>
                         {/* <th className="p-3 w-16 text-sm font-semibold tracking-wide text-left">No.</th> */}
+                        <th className="p-3 w-12 text-sm font-semibold tracking-wide text-left"></th>
                         <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Nama</th>
                         <th className="p-3 w-44 text-sm font-semibold tracking-wide text-left">Harga</th>
                         <th className="p-3 w-20 text-sm font-semibold tracking-wide text-center">Bass</th>
@@ -217,9 +218,11 @@ export default function IEMList() {
                         return(
                           <>
                           <tr className=" dark:bg-slate-900" key={i}>
-                            {/* <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{iem.id}</td> */}
-                            <td className="p-3 text-sm flex text-gray-700 whitespace-nowrap dark:text-white">
+                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                               <img className="h-5 mr-2" src={iem.gambar}/>
+                            </td>
+                            <td className="p-3 text-sm flex text-gray-700 whitespace-nowrap dark:text-white">
+                              
                               <p>{iem.name}</p>
                               <button className="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-800 text-xs hover:bg-sky-500 dark:hover:bg-sky-500 hover:text-white dark:hover:text-white ml-2 px-2 rounded-md" onClick={() => {const container = document.getElementById(`${i}`);container.classList.remove('hidden');}}>Details</button>  
                             </td>
@@ -260,7 +263,7 @@ export default function IEMList() {
                                   <p className="text-base text-white dark:text-gray-400">Treble : {"⭐".repeat(iem.treble)}</p>
                                   <p className="text-base text-white dark:text-gray-400">Jumlah Driver : {iem.jumlahDriver}</p>
                                   <p className="text-base text-white dark:text-gray-400">Tipe Driver : {iem.tipeDriver}</p>
-                                  <p className="text-base text-white dark:text-gray-400">Tipe Driver : <a href={iem.linkBeli} className="font-semibold underline hover:text-slate-800 dark:hover:text-sky-500" target="_blank">Klik disini</a></p>
+                                  <p className="text-base text-white dark:text-gray-400">Link Beli : <a href={iem.linkBeli} className="font-semibold underline hover:text-slate-800 dark:hover:text-sky-500" target="_blank">Klik disini</a></p>
                                 </div>
                             </div>
                             {/* Modal end */}
