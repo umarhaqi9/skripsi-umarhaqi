@@ -132,8 +132,10 @@ export default function IEMRecommend() {
     const result = document.querySelector('#result');
     const submitButton = document.querySelector('#submitButton');
     const loadingButton = document.querySelector('#loadingButton');
+    const disclaimerAcc = document.querySelector('#disclaimerSection')
 
     submitButton.classList.add('hidden');
+    disclaimerAcc.classList.add('hidden');
     loadingButton.classList.remove('hidden');
     
 
@@ -556,7 +558,7 @@ export default function IEMRecommend() {
                 </div>
               </div>
 
-              <div id="inputSection" className='w-full px-4' data-aos="fade-up">
+              <div id="disclaimerSection" className='w-full px-4' data-aos="fade-up">
                 {disclaimer.map((data, i) => {
                   return <Accordion key={i} open={i === open} title={data.title} desc={data.desc} bass={data.bass} mid={data.mid} treble={data.treble} toggle={()=>toggle(i)}/>
                 })}
