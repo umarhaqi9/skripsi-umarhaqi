@@ -556,7 +556,7 @@ export default function IEMRecommend() {
                 </div>
               </div>
 
-              <div className='w-full px-4' data-aos="fade-up">
+              <div id="inputSection" className='w-full px-4' data-aos="fade-up">
                 {disclaimer.map((data, i) => {
                   return <Accordion key={i} open={i === open} title={data.title} desc={data.desc} bass={data.bass} mid={data.mid} treble={data.treble} toggle={()=>toggle(i)}/>
                 })}
