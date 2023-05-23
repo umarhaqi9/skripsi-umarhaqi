@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import SocMedBtn from "../components/SocMedBtn";
 import { IEM } from "../components/iem_db";
 import Link from 'next/link';
+import Accordion from "../components/accordion";
 
 
 export default function IEMRecommend() {
@@ -93,6 +94,26 @@ export default function IEMRecommend() {
     
     
   })
+
+
+  const disclaimer = [
+    {
+      title: "Disclaimer",
+      desc: "Data rekomendasi yang diberikan hanya berdasarkan Frequency Response, adanya kemungkinan perbedaan suara yang dirasakan oleh masing-masing pengguna saat digunakan secara langsung di telinga.",
+      bass: "Mencakup instrumen Bass, Kick Drum, dan nada-nada rendah lainnya.",
+      mid: "Mencakup vokal pria dan perempuan, piano, dan nada-nada tengah lainnya.",
+      treble: "Mencakup Simbal drum, gitar, biola, dan nada-nada tinggi lainnya."
+    }
+  ]
+
+  const [open, setOpen] = useState(false);
+
+  const toggle = (i) => {
+    if(open === i){
+      return setOpen(null);
+    }
+    setOpen(i);
+  }
 
   // const preference = useRef();
   const [priority1, setPriority1] = useState(50);
@@ -535,6 +556,12 @@ export default function IEMRecommend() {
                 </div>
               </div>
 
+              <div className='w-full px-4' data-aos="fade-up">
+                {disclaimer.map((data, i) => {
+                  return <Accordion key={i} open={i === open} title={data.title} desc={data.desc} bass={data.bass} mid={data.mid} treble={data.treble} toggle={()=>toggle(i)}/>
+                })}
+              </div>
+
               {/* Input Section */}
               <div id="inputSection" className='w-full px-4' data-aos="fade-up">
                 <div className='w-full p-4 bg-slate-50 dark:bg-slate-900 dark:text-white shadow-md rounded-lg' data-aos="fade-up">
@@ -746,10 +773,6 @@ export default function IEMRecommend() {
                           </div>
                         </div>
                       </div>
-                      
-                      
-                      
-                      
                     </div>
                 </div>
               </div>
