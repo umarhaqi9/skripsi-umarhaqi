@@ -551,7 +551,7 @@ export default function IEMRecommend() {
                   <h4 className='font-semibold text-lg text-sky-500 mb-2'>Rekomendasi</h4>
                   <h2 className='font-bold text-black dark:text-white text-4xl mb-4'>Temukan IEM Anda!</h2>
                   <p className='font-medium text-slate-500 dark:text-slate-300 md:text-lg'>
-                  Masukkan prioritas preferensi anda :
+                  Gunakan slider di bawah untuk memasukkan prioritas preferensi anda :
                   </p>
                 </div>
               </div>
